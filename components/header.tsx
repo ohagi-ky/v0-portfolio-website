@@ -25,12 +25,12 @@ export function Header() {
         </nav>
         <div className="flex items-center space-x-3">
           <Button variant="outline" size="sm" asChild>
-            <a href="https://github.com/kouen-yoshimura" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/ohagi-ky" target="_blank" rel="noopener noreferrer">
               <Github className="h-4 w-4" />
             </a>
           </Button>
           <Button variant="outline" size="sm" asChild>
-            <a href="https://qiita.com/kouen_yoshimura" target="_blank" rel="noopener noreferrer">
+            <a href="https://qiita.com/OhaGi_" target="_blank" rel="noopener noreferrer">
               <ExternalLink className="h-4 w-4" />
             </a>
           </Button>
