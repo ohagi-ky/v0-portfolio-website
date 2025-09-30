@@ -6,13 +6,13 @@ export function Links() {
   const links = [
     {
       name: "GitHub",
-      url: "https://github.com/kouen-yoshimura",
+      url: "https://github.com/ohagi-ky",
       icon: Github,
       description: "ソースコードとプロジェクト",
     },
     {
       name: "Qiita",
-      url: "https://qiita.com/kouen_yoshimura",
+      url: "https://qiita.com/OhaGi_",
       icon: ExternalLink,
       description: "技術記事とナレッジ共有",
     },
