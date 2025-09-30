@@ -180,7 +180,7 @@ export function Skills() {
   const tools = ["Git", "Github", "Firebase", "GCP", "Figma"]
 
   return (
-    <section id="skills" className="space-y-6">
+    <section id="skills" className="space-y-6 scroll-mt-20">
       <div className="flex items-center space-x-3">
         <Code className="h-6 w-6 text-primary" />
         <h2 className="text-3xl font-bold text-balance">Skills</h2>

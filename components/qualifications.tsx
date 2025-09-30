@@ -26,7 +26,7 @@ export function Qualifications() {
   ]
 
   return (
-    <section id="qualifications" className="space-y-6">
+    <section id="qualifications" className="space-y-6 scroll-mt-20">
       <div className="flex items-center space-x-3">
         <Award className="h-6 w-6 text-primary" />
         <h2 className="text-3xl font-bold text-balance">Qualifications</h2>
@@ -38,6 +38,7 @@ export function Qualifications() {
             <CardContent className="p-6">
               <div className="space-y-3">
                 <h3 className="font-semibold text-lg">{qual.name}</h3>
+                {/* qual.scoreの存在チェックを追加 */}
                 {qual.score && <p className="text-primary font-medium">{qual.score}</p>}
                 <div className="flex items-center space-x-2 text-muted-foreground text-sm">
                   <Calendar className="h-4 w-4" />

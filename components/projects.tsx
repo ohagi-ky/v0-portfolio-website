@@ -60,7 +60,7 @@ export function Projects() {
   ]
 
   return (
-    <section id="projects" className="space-y-8">
+    <section id="projects" className="space-y-8 scroll-mt-20">
       <div className="flex items-center space-x-3">
         <Briefcase className="h-6 w-6 text-primary" />
         <h2 className="text-3xl font-bold text-balance">Projects & Experience</h2>
