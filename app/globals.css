@@ -6,21 +6,21 @@
 :root {
   /* Retro gaming inspired color palette with dark background and neon accents */
   --background: oklch(0.15 0.02 240); /* Dark navy-blue background (#1a1d2e) */
-  --foreground: oklch(0.95 0.01 180); /* Off-white text (#e8f4f8) */
+  --foreground: oklch(0.98 0.005 180); /* Brighter off-white text */
   --card: oklch(0.2 0.03 240); /* Slightly lighter dark blue for cards (#252a3f) */
-  --card-foreground: oklch(0.95 0.01 180); /* Off-white text on cards */
+  --card-foreground: oklch(0.98 0.005 180); /* Brighter off-white text on cards */
   --popover: oklch(0.2 0.03 240); /* Dark blue popover */
-  --popover-foreground: oklch(0.95 0.01 180); /* Off-white popover text */
+  --popover-foreground: oklch(0.98 0.005 180); /* Brighter off-white popover text */
   --primary: oklch(0.7 0.2 180); /* Cyan accent (#00d9ff) */
   --primary-foreground: oklch(0.15 0.02 240); /* Dark text on primary */
   --secondary: oklch(0.75 0.25 330); /* Magenta/pink accent (#ff00ff) */
   --secondary-foreground: oklch(0.15 0.02 240); /* Dark text on secondary */
   --muted: oklch(0.3 0.03 240); /* Muted dark blue (#3a4158) */
-  --muted-foreground: oklch(0.65 0.02 180); /* Muted cyan-gray text */
+  --muted-foreground: oklch(0.75 0.02 180); /* Brighter muted cyan-gray text */
   --accent: oklch(0.8 0.25 120); /* Bright lime green accent (#00ff41) */
   --accent-foreground: oklch(0.15 0.02 240); /* Dark text on accent */
   --destructive: oklch(0.6 0.25 15); /* Red for destructive actions */
-  --destructive-foreground: oklch(0.95 0.01 180); /* Off-white on destructive */
+  --destructive-foreground: oklch(0.98 0.005 180); /* Brighter off-white on destructive */
   --border: oklch(0.35 0.05 240); /* Border color with slight blue tint */
   --input: oklch(0.25 0.03 240); /* Dark input backgrounds */
   --ring: oklch(0.7 0.2 180 / 0.5); /* Cyan focus ring with opacity */
@@ -31,7 +31,7 @@
   --chart-5: oklch(0.6 0.25 15); /* Chart color 5 - red */
   --radius: 0.25rem; /* Smaller border radius for retro feel */
   --sidebar: oklch(0.2 0.03 240); /* Dark blue sidebar */
-  --sidebar-foreground: oklch(0.95 0.01 180); /* Off-white sidebar text */
+  --sidebar-foreground: oklch(0.98 0.005 180); /* Brighter off-white sidebar text */
   --sidebar-primary: oklch(0.7 0.2 180); /* Cyan sidebar primary */
   --sidebar-primary-foreground: oklch(0.15 0.02 240); /* Dark on sidebar primary */
   --sidebar-accent: oklch(0.8 0.25 120); /* Lime green sidebar accent */
