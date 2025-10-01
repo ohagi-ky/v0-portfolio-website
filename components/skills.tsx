@@ -6,17 +6,19 @@ import {
   SiPython,
   SiJava,
   SiHtml5,
+  SiCss3,
   SiMysql,
   SiReact,
   SiNodedotjs,
   SiTailwindcss,
-  SiSpringboot,
+  SiSpring,
   SiGit,
   SiGithub,
   SiFirebase,
   SiGooglecloud,
   SiFigma,
   SiDiscord,
+  SiAndroid,
 } from "react-icons/si"
 import type { JSX } from "react"
 
@@ -26,14 +28,22 @@ const TechIcon = ({ name }: { name: string }) => {
     TypeScript: { icon: <SiTypescript className="w-8 h-8" />, color: "#3178C6" },
     Python: { icon: <SiPython className="w-8 h-8" />, color: "#3776AB" },
     Java: { icon: <SiJava className="w-8 h-8" />, color: "#007396" },
-    "HTML/CSS": { icon: <SiHtml5 className="w-8 h-8" />, color: "#E34F26" },
+    "HTML/CSS": {
+      icon: (
+        <div className="relative w-8 h-8">
+          <SiHtml5 className="w-8 h-8 absolute" style={{ color: "#E34F26" }} />
+          <SiCss3 className="w-4 h-4 absolute bottom-0 right-0" style={{ color: "#1572B6" }} />
+        </div>
+      ),
+      color: "#E34F26",
+    },
     SQL: { icon: <SiMysql className="w-8 h-8" />, color: "#4479A1" },
     React: { icon: <SiReact className="w-8 h-8" />, color: "#61DAFB" },
-    "Jetpack Compose": { icon: <SiReact className="w-8 h-8" />, color: "#4285F4" },
+    "Jetpack Compose": { icon: <SiAndroid className="w-8 h-8" />, color: "#3DDC84" },
     "discord.py": { icon: <SiDiscord className="w-8 h-8" />, color: "#5865F2" },
     "Node.js": { icon: <SiNodedotjs className="w-8 h-8" />, color: "#339933" },
     "tailwind.css": { icon: <SiTailwindcss className="w-8 h-8" />, color: "#06B6D4" },
-    "Spring Boot": { icon: <SiSpringboot className="w-8 h-8" />, color: "#6DB33F" },
+    "Spring Boot": { icon: <SiSpring className="w-8 h-8" />, color: "#6DB33F" },
     Git: { icon: <SiGit className="w-8 h-8" />, color: "#F05032" },
     Github: { icon: <SiGithub className="w-8 h-8" />, color: "#181717" },
     Firebase: { icon: <SiFirebase className="w-8 h-8" />, color: "#FFCA28" },
