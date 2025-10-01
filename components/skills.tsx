@@ -4,7 +4,6 @@ import {
   SiJavascript,
   SiTypescript,
   SiPython,
-  SiJava,
   SiHtml5,
   SiCss3,
   SiMysql,
@@ -20,6 +19,7 @@ import {
   SiDiscord,
   SiAndroid,
 } from "react-icons/si"
+import { DiJava } from "react-icons/di"
 import type { JSX } from "react"
 
 const TechIcon = ({ name }: { name: string }) => {
@@ -27,7 +27,7 @@ const TechIcon = ({ name }: { name: string }) => {
     JavaScript: { icon: <SiJavascript className="w-8 h-8" />, color: "#F7DF1E" },
     TypeScript: { icon: <SiTypescript className="w-8 h-8" />, color: "#3178C6" },
     Python: { icon: <SiPython className="w-8 h-8" />, color: "#3776AB" },
-    Java: { icon: <SiJava className="w-8 h-8" />, color: "#007396" },
+    Java: { icon: <DiJava className="w-8 h-8" />, color: "#007396" },
     "HTML/CSS": {
       icon: (
         <div className="relative w-8 h-8">
