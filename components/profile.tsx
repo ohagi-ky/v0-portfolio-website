@@ -25,8 +25,8 @@ export function Profile() {
                   <span className="text-muted-foreground text-lg font-normal">(Kouen Yoshimura)</span>
                 </h3>
                 <div className="text-lg text-muted-foreground">
-                  <p>○○大学 情報工学部</p>
-                  <p>コンピュータサイエンス学科</p>
+                  <p>名古屋工学院専門学校</p>
+                  <p>情報総合学科</p>
                 </div>
               </div>
               <p className="text-base text-muted-foreground leading-relaxed">
