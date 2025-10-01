@@ -4,14 +4,20 @@ import { User } from "lucide-react"
 export function Profile() {
   return (
     <section id="profile" className="space-y-6 scroll-mt-20">
-      <div className="flex items-center space-x-3">
-        <User className="h-6 w-6 text-primary" />
-        <h2 className="text-3xl font-bold text-balance">Profile</h2>
+      <div className="flex items-center justify-center space-x-3">
+        <User className="h-8 w-8 text-primary" />
+        <h2 className="text-4xl font-bold text-balance">Profile</h2>
       </div>
 
       <Card>
         <CardContent className="p-8">
           <div className="grid md:grid-cols-2 gap-6 items-center">
+            <div className="flex justify-center md:justify-start">
+              <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg">
+                <img src="/profile.jpg" alt="Kouen Yoshimura" className="w-full h-full object-cover" />
+              </div>
+            </div>
+
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-2xl font-bold flex items-center space-x-3">
@@ -28,12 +34,6 @@ export function Profile() {
                 チーム開発やインターンシップを通じて実践的なスキルを身につけ、
                 ユーザー体験を重視したWebアプリケーション開発に取り組んでいます。
               </p>
-            </div>
-
-            <div className="flex justify-center md:justify-end">
-              <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg">
-                <img src="/profile.jpg" alt="Kouen Yoshimura" className="w-full h-full object-cover" />
-              </div>
             </div>
           </div>
         </CardContent>

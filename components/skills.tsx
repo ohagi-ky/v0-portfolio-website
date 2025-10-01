@@ -181,9 +181,9 @@ export function Skills() {
 
   return (
     <section id="skills" className="space-y-6 scroll-mt-20">
-      <div className="flex items-center space-x-3">
-        <Code className="h-6 w-6 text-primary" />
-        <h2 className="text-3xl font-bold text-balance">Skills</h2>
+      <div className="flex items-center justify-center space-x-3">
+        <Code className="h-8 w-8 text-primary" />
+        <h2 className="text-4xl font-bold text-balance">Skills</h2>
       </div>
 
       <div className="grid md:grid-cols-3 gap-6">

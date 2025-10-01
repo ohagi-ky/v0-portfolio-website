@@ -7,19 +7,19 @@ export function Header() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 max-w-4xl">
         <div className="flex items-center space-x-2">{/* タイトル削除 */}</div>
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#profile" className="text-base font-medium hover:text-primary transition-colors">
+          <a href="#profile" className="text-lg font-medium hover:text-primary transition-colors">
             Profile
           </a>
-          <a href="#skills" className="text-base font-medium hover:text-primary transition-colors">
+          <a href="#skills" className="text-lg font-medium hover:text-primary transition-colors">
             Skills
           </a>
-          <a href="#qualifications" className="text-base font-medium hover:text-primary transition-colors">
+          <a href="#qualifications" className="text-lg font-medium hover:text-primary transition-colors">
             Qualifications
           </a>
-          <a href="#projects" className="text-base font-medium hover:text-primary transition-colors">
+          <a href="#projects" className="text-lg font-medium hover:text-primary transition-colors">
             Projects
           </a>
-          <a href="#links" className="text-base font-medium hover:text-primary transition-colors">
+          <a href="#links" className="text-lg font-medium hover:text-primary transition-colors">
             Links
           </a>
         </nav>
