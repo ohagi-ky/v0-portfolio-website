@@ -18,6 +18,7 @@ import {
   SiFigma,
   SiDiscord,
   SiAndroid,
+  SiLinux, // Added Linux icon
 } from "react-icons/si"
 import { DiJava } from "react-icons/di"
 import type { JSX } from "react"
@@ -49,6 +50,7 @@ const TechIcon = ({ name }: { name: string }) => {
     Firebase: { icon: <SiFirebase className="w-8 h-8" />, color: "#FFCA28" },
     GCP: { icon: <SiGooglecloud className="w-8 h-8" />, color: "#4285F4" },
     Figma: { icon: <SiFigma className="w-8 h-8" />, color: "#F24E1E" },
+    Linux: { icon: <SiLinux className="w-8 h-8" />, color: "#FCC624" }, // Added Linux to icon map
   }
 
   const tech = iconMap[name] || {
@@ -57,7 +59,7 @@ const TechIcon = ({ name }: { name: string }) => {
   }
 
   return (
-    <div className="flex flex-col items-center gap-2 p-3 rounded-lg bg-card border-2 border-primary/20 hover:border-primary transition-all hover:scale-105">
+    <div className="flex flex-col items-center gap-2 p-3 rounded-lg bg-background/80 border-2 border-primary/20 hover:border-primary transition-all hover:scale-105">
       <div style={{ color: tech.color }}>{tech.icon}</div>
       <span className="text-xs text-center font-mono text-foreground/90">{name}</span>
     </div>
@@ -67,7 +69,7 @@ const TechIcon = ({ name }: { name: string }) => {
 export function Skills() {
   const programmingLanguages = ["JavaScript", "TypeScript", "Python", "Java", "HTML/CSS", "SQL"]
   const frameworks = ["React", "Jetpack Compose", "discord.py", "Node.js", "tailwind.css", "Spring Boot"]
-  const tools = ["Git", "Github", "Firebase", "GCP", "Figma"]
+  const tools = ["Git", "Github", "Firebase", "GCP", "Figma", "Linux"] // Added Linux to tools
 
   return (
     <section id="skills" className="space-y-6 scroll-mt-20">
