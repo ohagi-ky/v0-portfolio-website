@@ -8,48 +8,47 @@ import {
   SiHtml5,
   SiMysql,
   SiReact,
-  SiJetpackcompose,
-  SiDiscord,
   SiNodedotjs,
   SiTailwindcss,
-  SiSpring,
+  SiSpringboot,
   SiGit,
   SiGithub,
   SiFirebase,
   SiGooglecloud,
   SiFigma,
+  SiDiscord,
 } from "react-icons/si"
-import type React from "react"
+import type { JSX } from "react"
 
 const TechIcon = ({ name }: { name: string }) => {
-  const iconMap: Record<string, { icon: React.ComponentType<{ className?: string }>; color: string }> = {
-    JavaScript: { icon: SiJavascript, color: "#F7DF1E" },
-    TypeScript: { icon: SiTypescript, color: "#3178C6" },
-    Python: { icon: SiPython, color: "#3776AB" },
-    Java: { icon: SiJava, color: "#007396" },
-    "HTML/CSS": { icon: SiHtml5, color: "#E34F26" },
-    SQL: { icon: SiMysql, color: "#4479A1" },
-    React: { icon: SiReact, color: "#61DAFB" },
-    "Jetpack Compose": { icon: SiJetpackcompose, color: "#4285F4" },
-    "discord.py": { icon: SiDiscord, color: "#5865F2" },
-    "Node.js": { icon: SiNodedotjs, color: "#339933" },
-    "tailwind.css": { icon: SiTailwindcss, color: "#06B6D4" },
-    "Spring Boot": { icon: SiSpring, color: "#6DB33F" },
-    Git: { icon: SiGit, color: "#F05032" },
-    Github: { icon: SiGithub, color: "#181717" },
-    Firebase: { icon: SiFirebase, color: "#FFCA28" },
-    GCP: { icon: SiGooglecloud, color: "#4285F4" },
-    Figma: { icon: SiFigma, color: "#F24E1E" },
+  const iconMap: Record<string, { icon: JSX.Element; color: string }> = {
+    JavaScript: { icon: <SiJavascript className="w-8 h-8" />, color: "#F7DF1E" },
+    TypeScript: { icon: <SiTypescript className="w-8 h-8" />, color: "#3178C6" },
+    Python: { icon: <SiPython className="w-8 h-8" />, color: "#3776AB" },
+    Java: { icon: <SiJava className="w-8 h-8" />, color: "#007396" },
+    "HTML/CSS": { icon: <SiHtml5 className="w-8 h-8" />, color: "#E34F26" },
+    SQL: { icon: <SiMysql className="w-8 h-8" />, color: "#4479A1" },
+    React: { icon: <SiReact className="w-8 h-8" />, color: "#61DAFB" },
+    "Jetpack Compose": { icon: <SiReact className="w-8 h-8" />, color: "#4285F4" },
+    "discord.py": { icon: <SiDiscord className="w-8 h-8" />, color: "#5865F2" },
+    "Node.js": { icon: <SiNodedotjs className="w-8 h-8" />, color: "#339933" },
+    "tailwind.css": { icon: <SiTailwindcss className="w-8 h-8" />, color: "#06B6D4" },
+    "Spring Boot": { icon: <SiSpringboot className="w-8 h-8" />, color: "#6DB33F" },
+    Git: { icon: <SiGit className="w-8 h-8" />, color: "#F05032" },
+    Github: { icon: <SiGithub className="w-8 h-8" />, color: "#181717" },
+    Firebase: { icon: <SiFirebase className="w-8 h-8" />, color: "#FFCA28" },
+    GCP: { icon: <SiGooglecloud className="w-8 h-8" />, color: "#4285F4" },
+    Figma: { icon: <SiFigma className="w-8 h-8" />, color: "#F24E1E" },
   }
 
-  const iconData = iconMap[name]
-  const IconComponent = iconData?.icon || Code
+  const tech = iconMap[name] || {
+    icon: <Code className="w-8 h-8" />,
+    color: "currentColor",
+  }
 
   return (
     <div className="flex flex-col items-center gap-2 p-3 rounded-lg bg-card border-2 border-primary/20 hover:border-primary transition-all hover:scale-105">
-      <div className="w-10 h-10 flex items-center justify-center">
-        <IconComponent className="w-8 h-8" style={{ color: iconData?.color || "currentColor" }} />
-      </div>
+      <div style={{ color: tech.color }}>{tech.icon}</div>
       <span className="text-xs text-center font-mono text-foreground/90">{name}</span>
     </div>
   )
