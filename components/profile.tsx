@@ -30,7 +30,7 @@ export function Profile() {
                 </div>
               </div>
               <p className="text-base text-muted-foreground leading-relaxed">
-                情報系学部で開発全般の知識を学び、web開発に興味を持つ27卒の専門学生です。
+                情報系学学科で開発全般の知識を学び、web開発に興味を持つ27卒の専門学生です。
                 チーム開発やインターンシップを通じて実践的なスキルを身につけ、
                 ユーザー体験を重視したWebアプリケーション開発に取り組んでいます。
               </p>
