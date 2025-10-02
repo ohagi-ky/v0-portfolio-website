@@ -176,12 +176,17 @@ export function Projects() {
                     {project.details && (
                       <div className="mt-6 border-t pt-4">
                         <Button
-                          variant="ghost"
-                          className="w-full flex items-center justify-between hover:bg-muted"
+                          variant="default"
+                          size="lg"
+                          className="w-full flex items-center justify-between bg-primary/10 hover:bg-primary/20 text-primary border-2 border-primary/30 hover:border-primary transition-all"
                           onClick={() => setIsComipDetailOpen(!isComipDetailOpen)}
                         >
-                          <span className="font-semibold">プロジェクト詳細</span>
-                          {isComipDetailOpen ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+                          <span className="font-bold text-base">📖 プロジェクト詳細を見る</span>
+                          {isComipDetailOpen ? (
+                            <ChevronUp className="h-6 w-6 font-bold" />
+                          ) : (
+                            <ChevronDown className="h-6 w-6 font-bold" />
+                          )}
                         </Button>
 
                         {isComipDetailOpen && (

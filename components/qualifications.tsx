@@ -36,7 +36,7 @@ export function Qualifications() {
         {qualifications.map((qual, index) => (
           <Card
             key={index}
-            className="border-l-4 border-l-primary hover:shadow-lg transition-all hover:scale-105 bg-gradient-to-r from-primary/5 to-transparent"
+            className="border-l-4 border-l-primary hover:shadow-lg transition-all bg-gradient-to-r from-primary/5 to-transparent"
           >
             <CardContent className="p-6">
               <div className="space-y-3">

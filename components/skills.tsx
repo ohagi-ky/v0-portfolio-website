@@ -59,7 +59,7 @@ const TechIcon = ({ name }: { name: string }) => {
   }
 
   return (
-    <div className="flex flex-col items-center gap-2 p-3 rounded-lg bg-background/80 border-2 border-primary/20 hover:border-primary transition-all hover:scale-105">
+    <div className="flex flex-col items-center gap-2 p-3 rounded-lg bg-background/80 border-2 border-primary/20 hover:border-primary transition-all">
       <div style={{ color: tech.color }}>{tech.icon}</div>
       <span className="text-xs text-center font-mono text-foreground/90">{name}</span>
     </div>

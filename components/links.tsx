@@ -33,7 +33,7 @@ export function Links() {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="block transition-transform hover:scale-105"
+            className="block transition-all hover:scale-110"
           >
             <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
               <CardContent className="p-6">
