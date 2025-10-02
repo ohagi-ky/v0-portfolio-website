@@ -16,7 +16,8 @@ export function Projects() {
       githubUrl: "https://github.com/TYTTNTeam/ComikeApp",
       qiitaUrl: "https://qiita.com/OhaGi_/items/94a6503033b1d91bb405",
       icon: Users,
-      imageUrl: "/images/komippu.jpg", // 後でアップロード予定
+      iconImage: "/images/comip-icon.png",
+      imageUrl: "/images/comip-screen.png",
     },
     {
       title: "gemaneko",
@@ -28,7 +29,7 @@ export function Projects() {
       githubUrl: "https://github.com/ohagi-ky/gemaneko",
       qiitaUrl: "https://qiita.com/OhaGi_/items/f3ca0c144aca495344a7",
       icon: Bot,
-      imageUrl: "/images/gemaneko.jpg", // 後でアップロード予定
+      imageUrl: "/images/gemaneko.jpg",
     },
     {
       title: "OshiSup",
@@ -39,7 +40,7 @@ export function Projects() {
       githubUrl: "https://github.com/ohagi-ky/OshiSup",
       qiitaUrl: "https://qiita.com/OhaGi_/items/oshisup-development",
       icon: Users,
-      imageUrl: "/images/oshisup.jpg", // 後でアップロード予定
+      imageUrl: "/images/oshisup.jpg",
     },
   ]
 
@@ -75,7 +76,18 @@ export function Projects() {
               <CardHeader>
                 <CardTitle className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
-                    <project.icon className="h-6 w-6 text-primary" />
+                    {project.iconImage ? (
+                      <div className="relative h-10 w-10 rounded-full overflow-hidden border-2 border-primary">
+                        <Image
+                          src={project.iconImage || "/placeholder.svg"}
+                          alt={`${project.title} icon`}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <project.icon className="h-6 w-6 text-primary" />
+                    )}
                     <span>{project.title}</span>
                     <Badge variant="outline">{project.type}</Badge>
                     <Badge variant="outline">{`開発人数:${project.developers}`}</Badge>
@@ -98,14 +110,14 @@ export function Projects() {
               </CardHeader>
               <CardContent>
                 <div className="mb-4">
-                  <div className="relative w-full h-48 rounded-lg overflow-hidden bg-muted">
+                  <div className="relative w-full h-64 rounded-lg overflow-hidden bg-muted border-2 border-border">
                     <Image
                       src={project.imageUrl || "/placeholder.svg"}
                       alt={`${project.title}のスクリーンショット`}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                       onError={(e) => {
-                        e.currentTarget.src = `/placeholder.svg?height=192&width=400&text=${encodeURIComponent(project.title)}`
+                        e.currentTarget.src = `/placeholder.svg?height=256&width=400&text=${encodeURIComponent(project.title)}`
                       }}
                     />
                   </div>
