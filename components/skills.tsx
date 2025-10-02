@@ -46,7 +46,7 @@ const TechIcon = ({ name }: { name: string }) => {
     "tailwind.css": { icon: <SiTailwindcss className="w-8 h-8" />, color: "#06B6D4" },
     "Spring Boot": { icon: <SiSpring className="w-8 h-8" />, color: "#6DB33F" },
     Git: { icon: <SiGit className="w-8 h-8" />, color: "#F05032" },
-    Github: { icon: <SiGithub className="w-8 h-8" />, color: "#181717" },
+    Github: { icon: <SiGithub className="w-8 h-8" />, color: "#FFFFFF" }, // Changed GitHub icon color from black (#181717) to white (#FFFFFF)
     Firebase: { icon: <SiFirebase className="w-8 h-8" />, color: "#FFCA28" },
     GCP: { icon: <SiGooglecloud className="w-8 h-8" />, color: "#4285F4" },
     Figma: { icon: <SiFigma className="w-8 h-8" />, color: "#F24E1E" },
