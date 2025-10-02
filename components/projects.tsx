@@ -1,7 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Briefcase, Github, ExternalLink, Users, Bot } from "lucide-react"
+import { Briefcase, Github, Users, Bot } from "lucide-react"
+import { SiQiita } from "react-icons/si"
 import Image from "next/image"
 
 export function Projects() {
@@ -73,64 +74,138 @@ export function Projects() {
         <div className="grid gap-6">
           {projects.map((project, index) => (
             <Card key={index}>
-              <CardHeader>
-                <CardTitle className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    {project.iconImage ? (
-                      <div className="relative h-10 w-10 rounded-full overflow-hidden border-2 border-primary">
+              {project.title === "こみっぷ" ? (
+                <>
+                  <CardHeader>
+                    <CardTitle className="flex items-center justify-between">
+                      <div className="flex items-center space-x-3">
+                        {project.iconImage ? (
+                          <div className="relative h-10 w-10 rounded-full overflow-hidden border-2 border-primary">
+                            <Image
+                              src={project.iconImage || "/placeholder.svg"}
+                              alt={`${project.title} icon`}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                        ) : (
+                          <project.icon className="h-6 w-6 text-primary" />
+                        )}
+                        <span>{project.title}</span>
+                        <Badge variant="outline">{project.type}</Badge>
+                        <Badge variant="outline">{`開発人数:${project.developers}`}</Badge>
+                      </div>
+                      <div className="flex space-x-2">
+                        <Button variant="outline" size="sm" asChild>
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Github className="h-4 w-4 mr-2" />
+                            GitHub
+                          </a>
+                        </Button>
+                        <Button variant="outline" size="sm" asChild>
+                          <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
+                            <SiQiita className="h-4 w-4 mr-2" style={{ color: "#55C500" }} />
+                            Qiita
+                          </a>
+                        </Button>
+                      </div>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-col md:flex-row gap-6">
+                      {/* 左側：スクリーンショット */}
+                      <div className="md:w-1/2">
+                        <div className="relative w-full h-80 rounded-lg overflow-hidden bg-muted border-2 border-border">
+                          <Image
+                            src={project.imageUrl || "/placeholder.svg"}
+                            alt={`${project.title}のスクリーンショット`}
+                            fill
+                            className="object-contain"
+                            onError={(e) => {
+                              e.currentTarget.src = `/placeholder.svg?height=320&width=400&text=${encodeURIComponent(project.title)}`
+                            }}
+                          />
+                        </div>
+                      </div>
+                      {/* 右側：説明文と使用技術 */}
+                      <div className="md:w-1/2 flex flex-col justify-center space-y-4">
+                        <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+                        <div>
+                          <h4 className="text-sm font-semibold mb-2">使用技術</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {project.technologies.map((tech) => (
+                              <Badge key={tech} variant="secondary" className="text-base px-3 py-1">
+                                {tech}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </>
+              ) : (
+                <>
+                  <CardHeader>
+                    <CardTitle className="flex items-center justify-between">
+                      <div className="flex items-center space-x-3">
+                        {project.iconImage ? (
+                          <div className="relative h-10 w-10 rounded-full overflow-hidden border-2 border-primary">
+                            <Image
+                              src={project.iconImage || "/placeholder.svg"}
+                              alt={`${project.title} icon`}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                        ) : (
+                          <project.icon className="h-6 w-6 text-primary" />
+                        )}
+                        <span>{project.title}</span>
+                        <Badge variant="outline">{project.type}</Badge>
+                        <Badge variant="outline">{`開発人数:${project.developers}`}</Badge>
+                      </div>
+                      <div className="flex space-x-2">
+                        <Button variant="outline" size="sm" asChild>
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Github className="h-4 w-4 mr-2" />
+                            GitHub
+                          </a>
+                        </Button>
+                        <Button variant="outline" size="sm" asChild>
+                          <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
+                            <SiQiita className="h-4 w-4 mr-2" style={{ color: "#55C500" }} />
+                            Qiita
+                          </a>
+                        </Button>
+                      </div>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="mb-4">
+                      <div className="relative w-full h-64 rounded-lg overflow-hidden bg-muted border-2 border-border">
                         <Image
-                          src={project.iconImage || "/placeholder.svg"}
-                          alt={`${project.title} icon`}
+                          src={project.imageUrl || "/placeholder.svg"}
+                          alt={`${project.title}のスクリーンショット`}
                           fill
-                          className="object-cover"
+                          className="object-contain"
+                          onError={(e) => {
+                            e.currentTarget.src = `/placeholder.svg?height=256&width=400&text=${encodeURIComponent(project.title)}`
+                          }}
                         />
                       </div>
-                    ) : (
-                      <project.icon className="h-6 w-6 text-primary" />
-                    )}
-                    <span>{project.title}</span>
-                    <Badge variant="outline">{project.type}</Badge>
-                    <Badge variant="outline">{`開発人数:${project.developers}`}</Badge>
-                  </div>
-                  <div className="flex space-x-2">
-                    <Button variant="outline" size="sm" asChild>
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-4 w-4 mr-2" />
-                        GitHub
-                      </a>
-                    </Button>
-                    <Button variant="outline" size="sm" asChild>
-                      <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Qiita
-                      </a>
-                    </Button>
-                  </div>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="mb-4">
-                  <div className="relative w-full h-64 rounded-lg overflow-hidden bg-muted border-2 border-border">
-                    <Image
-                      src={project.imageUrl || "/placeholder.svg"}
-                      alt={`${project.title}のスクリーンショット`}
-                      fill
-                      className="object-contain"
-                      onError={(e) => {
-                        e.currentTarget.src = `/placeholder.svg?height=256&width=400&text=${encodeURIComponent(project.title)}`
-                      }}
-                    />
-                  </div>
-                </div>
-                <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="secondary">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
+                    </div>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech) => (
+                        <Badge key={tech} variant="secondary">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </>
+              )}
             </Card>
           ))}
         </div>
