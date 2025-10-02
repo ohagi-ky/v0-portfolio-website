@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
-import { Github, ExternalLink } from "lucide-react"
+import { Github } from "lucide-react"
+import { SiQiita } from "react-icons/si"
 
 export function Header() {
   return (
@@ -31,7 +32,7 @@ export function Header() {
           </Button>
           <Button variant="outline" size="sm" asChild>
             <a href="https://qiita.com/OhaGi_" target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="h-4 w-4" />
+              <SiQiita className="h-4 w-4" style={{ color: "#55C500" }} />
             </a>
           </Button>
         </div>

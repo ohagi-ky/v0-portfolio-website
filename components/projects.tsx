@@ -19,6 +19,7 @@ export function Projects() {
       icon: Users,
       iconImage: "/images/comip-icon.png",
       imageUrl: "/images/comip-screen.png",
+      imageUrl2: "/images/comip-screen2.png",
     },
     {
       title: "gemaneko",
@@ -113,16 +114,26 @@ export function Projects() {
                   </CardHeader>
                   <CardContent>
                     <div className="flex flex-col md:flex-row gap-6">
-                      {/* 左側：スクリーンショット */}
-                      <div className="md:w-1/2">
-                        <div className="relative w-full h-80 rounded-lg overflow-hidden bg-muted border-2 border-border">
+                      <div className="md:w-1/2 flex gap-3">
+                        <div className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border">
                           <Image
-                            src={project.imageUrl || "/placeholder.svg"}
-                            alt={`${project.title}のスクリーンショット`}
+                            src={project.imageUrl2 || "/placeholder.svg"}
+                            alt={`${project.title}のスクリーンショット2`}
                             fill
                             className="object-contain"
                             onError={(e) => {
-                              e.currentTarget.src = `/placeholder.svg?height=320&width=400&text=${encodeURIComponent(project.title)}`
+                              e.currentTarget.src = `/placeholder.svg?height=320&width=200&text=${encodeURIComponent(project.title)}`
+                            }}
+                          />
+                        </div>
+                        <div className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border">
+                          <Image
+                            src={project.imageUrl || "/placeholder.svg"}
+                            alt={`${project.title}のスクリーンショット1`}
+                            fill
+                            className="object-contain"
+                            onError={(e) => {
+                              e.currentTarget.src = `/placeholder.svg?height=320&width=200&text=${encodeURIComponent(project.title)}`
                             }}
                           />
                         </div>

@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Github, ExternalLink, LinkIcon } from "lucide-react"
+import { SiQiita } from "react-icons/si"
 
 export function Links() {
   const links = [
@@ -13,7 +14,7 @@ export function Links() {
     {
       name: "Qiita",
       url: "https://qiita.com/OhaGi_",
-      icon: ExternalLink,
+      icon: SiQiita,
       description: "技術記事とナレッジ共有",
     },
   ]
@@ -31,7 +32,11 @@ export function Links() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
-                  <link.icon className="h-6 w-6 text-primary" />
+                  {link.name === "Qiita" ? (
+                    <link.icon className="h-6 w-6" style={{ color: "#55C500" }} />
+                  ) : (
+                    <link.icon className="h-6 w-6 text-primary" />
+                  )}
                   <div>
                     <h3 className="font-semibold">{link.name}</h3>
                     <p className="text-sm text-muted-foreground">{link.description}</p>
