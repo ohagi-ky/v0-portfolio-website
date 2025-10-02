@@ -34,11 +34,16 @@ export function Qualifications() {
 
       <div className="grid md:grid-cols-2 gap-4">
         {qualifications.map((qual, index) => (
-          <Card key={index}>
+          <Card
+            key={index}
+            className="border-l-4 border-l-primary hover:shadow-lg transition-all hover:scale-105 bg-gradient-to-r from-primary/5 to-transparent"
+          >
             <CardContent className="p-6">
               <div className="space-y-3">
-                <h3 className="font-semibold text-lg">{qual.name}</h3>
-                {/* qual.scoreの存在チェックを追加 */}
+                <div className="flex items-start justify-between">
+                  <h3 className="font-semibold text-lg leading-tight">{qual.name}</h3>
+                  <Award className="h-5 w-5 text-primary flex-shrink-0 ml-2" />
+                </div>
                 {qual.score && <p className="text-primary font-medium">{qual.score}</p>}
                 <div className="flex items-center space-x-2 text-muted-foreground text-sm">
                   <Calendar className="h-4 w-4" />

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Github } from "lucide-react"
-import { SiQiita } from "react-icons/si"
+import Image from "next/image"
 
 export function Header() {
   return (
@@ -32,7 +32,7 @@ export function Header() {
           </Button>
           <Button variant="outline" size="sm" asChild>
             <a href="https://qiita.com/OhaGi_" target="_blank" rel="noopener noreferrer">
-              <SiQiita className="h-4 w-4" style={{ color: "#55C500" }} />
+              <Image src="/images/qiita-logo.png" alt="Qiita" width={16} height={16} className="h-4 w-4" />
             </a>
           </Button>
         </div>

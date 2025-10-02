@@ -1,11 +1,15 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Briefcase, Github, Users, Bot } from "lucide-react"
-import { SiQiita } from "react-icons/si"
+import { Briefcase, Github, Users, Bot, ChevronDown, ChevronUp } from "lucide-react"
 import Image from "next/image"
+import { useState } from "react"
 
 export function Projects() {
+  const [isComipDetailOpen, setIsComipDetailOpen] = useState(false)
+
   const projects = [
     {
       title: "こみっぷ",
@@ -20,6 +24,16 @@ export function Projects() {
       iconImage: "/images/comip-icon.png",
       imageUrl: "/images/comip-screen.png",
       imageUrl2: "/images/comip-screen2.png",
+      details: {
+        background:
+          "コミックマーケットでは広大な会場で目的のサークルを見つけるのが困難という課題がありました。既存の地図アプリでは会場内の詳細な配置図を扱えず、紙の地図では検索や共有が不便でした。この問題を解決するため、デジタル地図上でサークル位置を管理・共有できるアプリを開発しました。",
+        techReason:
+          "Kotlinは型安全性が高く、Androidアプリ開発の公式言語として推奨されているため採用しました。Jetpack Composeは宣言的UIにより開発効率が高く、地図表示などの複雑なUIを直感的に実装できる点が魅力でした。また、チームメンバーがAndroid開発に興味を持っていたことも決め手となりました。",
+        result:
+          "5人のチームで約3ヶ月かけて開発し、地図の追加・閲覧・検索機能を実装しました。ユーザーは自分の地図を作成し、サークル位置をマーキングして友人と共有できるようになりました。実際のコミケ参加者からも「会場で迷わなくなった」との好評を得ました。",
+        improvement:
+          "現在はオフライン機能が不十分なため、会場の通信環境が悪い場合に使いづらい点が課題です。今後はローカルデータベースを活用したオフライン対応や、リアルタイムでの位置共有機能の追加を検討しています。また、UIのアクセシビリティ向上も改善点として挙げられます。",
+      },
     },
     {
       title: "gemaneko",
@@ -105,7 +119,13 @@ export function Projects() {
                         </Button>
                         <Button variant="outline" size="sm" asChild>
                           <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
-                            <SiQiita className="h-4 w-4 mr-2" style={{ color: "#55C500" }} />
+                            <Image
+                              src="/images/qiita-logo.png"
+                              alt="Qiita"
+                              width={16}
+                              height={16}
+                              className="h-4 w-4 mr-2"
+                            />
                             Qiita
                           </a>
                         </Button>
@@ -138,7 +158,6 @@ export function Projects() {
                           />
                         </div>
                       </div>
-                      {/* 右側：説明文と使用技術 */}
                       <div className="md:w-1/2 flex flex-col justify-center space-y-4">
                         <p className="text-muted-foreground leading-relaxed">{project.description}</p>
                         <div>
@@ -153,6 +172,40 @@ export function Projects() {
                         </div>
                       </div>
                     </div>
+
+                    {project.details && (
+                      <div className="mt-6 border-t pt-4">
+                        <Button
+                          variant="ghost"
+                          className="w-full flex items-center justify-between hover:bg-muted"
+                          onClick={() => setIsComipDetailOpen(!isComipDetailOpen)}
+                        >
+                          <span className="font-semibold">プロジェクト詳細</span>
+                          {isComipDetailOpen ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+                        </Button>
+
+                        {isComipDetailOpen && (
+                          <div className="mt-4 space-y-4 animate-in slide-in-from-top-2">
+                            <div>
+                              <h4 className="font-semibold text-primary mb-2">制作背景</h4>
+                              <p className="text-muted-foreground leading-relaxed">{project.details.background}</p>
+                            </div>
+                            <div>
+                              <h4 className="font-semibold text-primary mb-2">技術選定理由</h4>
+                              <p className="text-muted-foreground leading-relaxed">{project.details.techReason}</p>
+                            </div>
+                            <div>
+                              <h4 className="font-semibold text-primary mb-2">結果</h4>
+                              <p className="text-muted-foreground leading-relaxed">{project.details.result}</p>
+                            </div>
+                            <div>
+                              <h4 className="font-semibold text-primary mb-2">改善点</h4>
+                              <p className="text-muted-foreground leading-relaxed">{project.details.improvement}</p>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </CardContent>
                 </>
               ) : (
@@ -185,7 +238,13 @@ export function Projects() {
                         </Button>
                         <Button variant="outline" size="sm" asChild>
                           <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
-                            <SiQiita className="h-4 w-4 mr-2" style={{ color: "#55C500" }} />
+                            <Image
+                              src="/images/qiita-logo.png"
+                              alt="Qiita"
+                              width={16}
+                              height={16}
+                              className="h-4 w-4 mr-2"
+                            />
                             Qiita
                           </a>
                         </Button>
