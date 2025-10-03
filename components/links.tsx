@@ -33,9 +33,9 @@ export function Links() {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="block transition-all duration-300 hover:scale-110 hover:-translate-y-2"
+            className="block transition-all hover:scale-110"
           >
-            <Card className="hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 cursor-pointer h-full hover:bg-accent/50">
+            <Card className="hover:shadow-lg transition-all cursor-pointer h-full border-2 border-primary/20 hover:border-primary">
               <CardContent className="p-6">
                 <div className="flex items-center space-x-4">
                   {link.icon === "github" ? (

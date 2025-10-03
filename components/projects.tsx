@@ -9,6 +9,7 @@ import { useState } from "react"
 
 export function Projects() {
   const [isComipDetailOpen, setIsComipDetailOpen] = useState(false)
+  const [expandedInternships, setExpandedInternships] = useState<Record<number, boolean>>({})
 
   const projects = [
     {
@@ -65,16 +66,26 @@ export function Projects() {
       company: "株式会社ベガコーポレーション",
       period: "2024年8月(5日間)",
       role: "プロダクト企画開発",
-      description: "本インターンには実務に直結する課題解決型のインターンを通じて自分の力を試したいと思い参加を決めました。私はチーム開発の経験はありましたが、事業会社のエンジニアとして「実際の利用現場の声をもとに課題を見つけ、改善につなげる」プロセスに興味を持っていました。本インターンでは、LOWYAの実店舗で実際に使用されているシステムを題材に、現場スタッフの方々から実際の店舗の現状についてヒアリングを行い、そこから課題を抽出して改善を提案・プロトタイプとして形にすることに挑戦しました。開発工程では、利用者である顧客の行動やニーズを整理し、ユーザーストーリーを意識した機能追加を検討しました。単にシステムを動かすのではなく、「誰が・どのような場面で・どんな価値を得られるか」という視点を明確に持つことを心がけました。また、Reactを用いて短期間でも形になるプロトタイプを作成しました。既に知識があったフレームワークではありますが、短い期間の制約の中で素早く実装し、チームメンバーと意見を擦り合わせながら改善を重ねることで、学んできた技術を現実的なシステム開発に応用する力を養うことができました。また、チームでの議論を通じて、自分一人の視点では気付けなかったアイデアや解決策に触れ、協働の重要性を再認識しました。短い期間で成果を出すには、一人で作業を抱え込むのではなくメンバー間で積極的に進捗や課題を共有し、補い合う姿勢が不可欠であることを実感しました。実際に異なる得意分野を持つメンバーとのやりとりを通じて、設計やUIの工夫や開発効率化のための工夫などを互いに取り入れることができ、アウトプットの質を高めることができました。最終日の成果発表では、エンジニア社員だけでなく、実際にそのシステムを利用するビジネス職の社員の方々からもフィードバックをいただきました。開発した内容に対して現場目線からの感想や期待の声を直接伺うことができ、顧客視点でシステムを設計・改善することの重要性を改めて実感しました。技術的な完成度だけでなく、利用する人がどう感じ、どのように業務に活かすかを意識することが、エンジニアに求められる大切な姿勢だと学びました。このインターンを通じて得られた学びは、単なるプログラミング技術の向上にとどまりませんでした。ユーザーストーリーを重視して課題を整理する力、短期間で成果物を形にする実行力、チームで意見を交わし協働する姿勢、そして顧客視点を取り入れて開発する重要性を体感しました。これらの経験は、今後エンジニアとして成長していくうえで欠かせない財産になると感じています",
+      shortDescription: "Reactを用い実際のシステム改善を企画から実装まで経験",
+      fullDescription:
+        "Reactを用い実際のシステム改善を企画から実装まで経験し、ユーザー視点での開発姿勢を学んだ。チームでの協働開発を通じて、コードレビューやアジャイル開発の実践的なスキルを習得。実際のプロダクトに触れることで、ビジネス要件を技術的に実現する力を養った。",
     },
     {
       company: "メディアリンク株式会社",
       period: "2024年9月(3日間)",
       role: "プロダクト企画開発",
-      description:
-        "Java・Gemini APIを用いた音声要約アプリ開発に従事。要件整理から設計・実装までをチームで担当し、生成AIを活用したシステム開発の実践経験を獲得。メンターによるレビューを通じて設計力・実装力を強化。",
+      shortDescription: "Java・Gemini APIを用いた音声要約アプリ開発に従事",
+      fullDescription:
+        "Java・Gemini APIを用いた音声要約アプリ開発に従事。要件整理から設計・実装までをチームで担当し、生成AIを活用したシステム開発の実践経験を獲得。メンターによるレビューを通じて設計力・実装力を強化。特にAPI連携やエラーハンドリングの重要性を学び、実務レベルのコーディング規約やテスト手法についても理解を深めた。",
     },
   ]
+
+  const toggleInternship = (index: number) => {
+    setExpandedInternships((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }))
+  }
 
   return (
     <section id="projects" className="space-y-8 scroll-mt-20">
@@ -304,7 +315,24 @@ export function Projects() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4 leading-relaxed">{internship.description}</p>
+                <div
+                  className="cursor-pointer group"
+                  onClick={() => toggleInternship(index)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      toggleInternship(index)
+                    }
+                  }}
+                >
+                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
+                    {expandedInternships[index] ? internship.fullDescription : internship.shortDescription}
+                    <span className="ml-2 text-primary font-semibold">
+                      {expandedInternships[index] ? "▲ 閉じる" : "▼ 続きを読む"}
+                    </span>
+                  </p>
+                </div>
               </CardContent>
             </Card>
           ))}
