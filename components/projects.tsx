@@ -9,7 +9,6 @@ import { useState } from "react"
 
 export function Projects() {
   const [isComipDetailOpen, setIsComipDetailOpen] = useState(false)
-  const [expandedInternships, setExpandedInternships] = useState<Record<number, boolean>>({})
 
   const projects = [
     {
@@ -66,26 +65,16 @@ export function Projects() {
       company: "株式会社ベガコーポレーション",
       period: "2024年8月(5日間)",
       role: "プロダクト企画開発",
-      shortDescription: "Reactを用い実際のシステム改善を企画から実装まで経験",
-      fullDescription:
-        "Reactを用い実際のシステム改善を企画から実装まで経験し、ユーザー視点での開発姿勢を学んだ。チームでの協働開発を通じて、コードレビューやアジャイル開発の実践的なスキルを習得。実際のプロダクトに触れることで、ビジネス要件を技術的に実現する力を養った。",
+      description: "Reactを用い実際のシステム改善を企画から実装まで経験し、ユーザー視点での開発姿勢を学んだ。",
     },
     {
       company: "メディアリンク株式会社",
       period: "2024年9月(3日間)",
       role: "プロダクト企画開発",
-      shortDescription: "Java・Gemini APIを用いた音声要約アプリ開発に従事",
-      fullDescription:
-        "Java・Gemini APIを用いた音声要約アプリ開発に従事。要件整理から設計・実装までをチームで担当し、生成AIを活用したシステム開発の実践経験を獲得。メンターによるレビューを通じて設計力・実装力を強化。特にAPI連携やエラーハンドリングの重要性を学び、実務レベルのコーディング規約やテスト手法についても理解を深めた。",
+      description:
+        "Java・Gemini APIを用いた音声要約アプリ開発に従事。要件整理から設計・実装までをチームで担当し、生成AIを活用したシステム開発の実践経験を獲得。メンターによるレビューを通じて設計力・実装力を強化。",
     },
   ]
-
-  const toggleInternship = (index: number) => {
-    setExpandedInternships((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }))
-  }
 
   return (
     <section id="projects" className="space-y-8 scroll-mt-20">
@@ -315,24 +304,7 @@ export function Projects() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div
-                  className="cursor-pointer group"
-                  onClick={() => toggleInternship(index)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      toggleInternship(index)
-                    }
-                  }}
-                >
-                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
-                    {expandedInternships[index] ? internship.fullDescription : internship.shortDescription}
-                    <span className="ml-2 text-primary font-semibold">
-                      {expandedInternships[index] ? "▲ 閉じる" : "▼ 続きを読む"}
-                    </span>
-                  </p>
-                </div>
+                <p className="text-muted-foreground mb-4 leading-relaxed">{internship.description}</p>
               </CardContent>
             </Card>
           ))}
