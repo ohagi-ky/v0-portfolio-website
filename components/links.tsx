@@ -35,7 +35,7 @@ export function Links() {
             rel="noopener noreferrer"
             className="block transition-all hover:scale-110"
           >
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+            <Card className="hover:shadow-lg transition-all cursor-pointer h-full border-2 border-primary/20 hover:border-primary">
               <CardContent className="p-6">
                 <div className="flex items-center space-x-4">
                   {link.icon === "github" ? (

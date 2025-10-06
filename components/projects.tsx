@@ -9,6 +9,7 @@ import { useState } from "react"
 
 export function Projects() {
   const [isComipDetailOpen, setIsComipDetailOpen] = useState(false)
+  const [expandedInternships, setExpandedInternships] = useState<Record<number, boolean>>({})
 
   const projects = [
     {
@@ -45,7 +46,19 @@ export function Projects() {
       githubUrl: "https://github.com/ohagi-ky/gemaneko",
       qiitaUrl: "https://qiita.com/OhaGi_/items/f3ca0c144aca495344a7",
       icon: Bot,
+      iconImage: "/images/comip-icon.png",
       imageUrl: "/images/gemaneko.jpg",
+      imageUrl2: "/images/comip-screen2.png",
+      details: {
+        background:
+          "コミックマーケットでは広大な会場で目的のサークルを見つけるのが困難という課題がありました。既存の地図アプリでは会場内の詳細な配置図を扱えず、紙の地図では検索や共有が不便でした。この問題を解決するため、デジタル地図上でサークル位置を管理・共有できるアプリを開発しました。",
+        techReason:
+          "Kotlinは型安全性が高く、Androidアプリ開発の公式言語として推奨されているため採用しました。Jetpack Composeは宣言的UIにより開発効率が高く、地図表示などの複雑なUIを直感的に実装できる点が魅力でした。また、チームメンバーがAndroid開発に興味を持っていたことも決め手となりました。",
+        result:
+          "5人のチームで約3ヶ月かけて開発し、地図の追加・閲覧・検索機能を実装しました。ユーザーは自分の地図を作成し、サークル位置をマーキングして友人と共有できるようになりました。実際のコミケ参加者からも「会場で迷わなくなった」との好評を得ました。",
+        improvement:
+          "現在はオフライン機能が不十分なため、会場の通信環境が悪い場合に使いづらい点が課題です。今後はローカルデータベースを活用したオフライン対応や、リアルタイムでの位置共有機能の追加を検討しています。また、UIのアクセシビリティ向上も改善点として挙げられます。",
+      },
     },
     {
       title: "OshiSup",
@@ -65,16 +78,26 @@ export function Projects() {
       company: "株式会社ベガコーポレーション",
       period: "2024年8月(5日間)",
       role: "プロダクト企画開発",
-      description: "Reactを用い実際のシステム改善を企画から実装まで経験し、ユーザー視点での開発姿勢を学んだ。",
+      shortDescription: "Reactを用い実際のシステム改善を企画から実装まで経験",
+      fullDescription:
+        "Reactを用い実際のシステム改善を企画から実装まで経験し、ユーザー視点での開発姿勢を学んだ。チームでの協働開発を通じて、コードレビューやアジャイル開発の実践的なスキルを習得。実際のプロダクトに触れることで、ビジネス要件を技術的に実現する力を養った。",
     },
     {
       company: "メディアリンク株式会社",
       period: "2024年9月(3日間)",
       role: "プロダクト企画開発",
-      description:
-        "Java・Gemini APIを用いた音声要約アプリ開発に従事。要件整理から設計・実装までをチームで担当し、生成AIを活用したシステム開発の実践経験を獲得。メンターによるレビューを通じて設計力・実装力を強化。",
+      shortDescription: "Java・Gemini APIを用いた音声要約アプリ開発に従事",
+      fullDescription:
+        "Java・Gemini APIを用いた音声要約アプリ開発に従事。要件整理から設計・実装までをチームで担当し、生成AIを活用したシステム開発の実践経験を獲得。メンターによるレビューを通じて設計力・実装力を強化。特にAPI連携やエラーハンドリングの重要性を学び、実務レベルのコーディング規約やテスト手法についても理解を深めた。",
     },
   ]
+
+  const toggleInternship = (index: number) => {
+    setExpandedInternships((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }))
+  }
 
   return (
     <section id="projects" className="space-y-8 scroll-mt-20">
@@ -304,7 +327,24 @@ export function Projects() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4 leading-relaxed">{internship.description}</p>
+                <div
+                  className="cursor-pointer group"
+                  onClick={() => toggleInternship(index)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      toggleInternship(index)
+                    }
+                  }}
+                >
+                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
+                    {expandedInternships[index] ? internship.fullDescription : internship.shortDescription}
+                    <span className="ml-2 text-primary font-semibold">
+                      {expandedInternships[index] ? "▲ 閉じる" : "▼ 続きを読む"}
+                    </span>
+                  </p>
+                </div>
               </CardContent>
             </Card>
           ))}
