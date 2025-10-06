@@ -112,7 +112,7 @@ export function Projects() {
         <div className="grid gap-6">
           {projects.map((project, index) => (
             <Card key={index}>
-              {project.title === "こみっぷ" ? (
+              {
                 <>
                   <CardHeader>
                     <CardTitle className="flex items-center justify-between">
@@ -236,74 +236,7 @@ export function Projects() {
                     )}
                   </CardContent>
                 </>
-              ) : (
-                <>
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-between">
-                      <div className="flex items-center space-x-3">
-                        {project.iconImage ? (
-                          <div className="relative h-10 w-10 rounded-full overflow-hidden border-2 border-primary">
-                            <Image
-                              src={project.iconImage || "/placeholder.svg"}
-                              alt={`${project.title} icon`}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                        ) : (
-                          <project.icon className="h-6 w-6 text-primary" />
-                        )}
-                        <span>{project.title}</span>
-                        <Badge variant="outline">{project.type}</Badge>
-                        <Badge variant="outline">{`開発人数:${project.developers}`}</Badge>
-                      </div>
-                      <div className="flex space-x-2">
-                        <Button variant="outline" size="sm" asChild>
-                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                            <Github className="h-4 w-4 mr-2" />
-                            GitHub
-                          </a>
-                        </Button>
-                        <Button variant="outline" size="sm" asChild>
-                          <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
-                            <Image
-                              src="/images/qiita-logo.png"
-                              alt="Qiita"
-                              width={16}
-                              height={16}
-                              className="h-4 w-4 mr-2"
-                            />
-                            Qiita
-                          </a>
-                        </Button>
-                      </div>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="mb-4">
-                      <div className="relative w-full h-64 rounded-lg overflow-hidden bg-muted border-2 border-border">
-                        <Image
-                          src={project.imageUrl || "/placeholder.svg"}
-                          alt={`${project.title}のスクリーンショット`}
-                          fill
-                          className="object-contain"
-                          onError={(e) => {
-                            e.currentTarget.src = `/placeholder.svg?height=256&width=400&text=${encodeURIComponent(project.title)}`
-                          }}
-                        />
-                      </div>
-                    </div>
-                    <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </>
-              )}
+              }
             </Card>
           ))}
         </div>
