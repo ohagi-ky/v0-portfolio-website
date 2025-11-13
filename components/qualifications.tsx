@@ -29,19 +29,19 @@ export function Qualifications() {
     <section id="qualifications" className="space-y-6 scroll-mt-20">
       <div className="flex items-center justify-center space-x-3">
         <Award className="h-8 w-8 text-primary" />
-        <h2 className="text-4xl font-bold text-balance">Qualifications</h2>
+        <h2 className="text-4xl md:text-5xl font-pixel text-primary animate-pulse-slow">Qualifications</h2>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
         {qualifications.map((qual, index) => (
           <Card
             key={index}
-            className="border-l-4 border-l-primary hover:shadow-lg transition-all bg-gradient-to-r from-primary/5 to-transparent"
+            className="border-l-8 border-l-accent hover:shadow-xl hover:shadow-accent/20 transition-all bg-gradient-to-r from-accent/10 to-transparent"
           >
             <CardContent className="p-6">
               <div className="space-y-3">
                 <div className="flex items-start justify-between">
-                  <h3 className="font-semibold text-lg leading-tight">{qual.name}</h3>
+                  <h3 className="font-semibold text-xl leading-tight text-accent">{qual.name}</h3>
                   <Award className="h-5 w-5 text-primary flex-shrink-0 ml-2" />
                 </div>
                 {qual.score && <p className="text-primary font-medium">{qual.score}</p>}

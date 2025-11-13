@@ -11,7 +11,7 @@ export function Profile() {
     <section id="profile" className="space-y-6 scroll-mt-20">
       <div className="flex items-center justify-center space-x-3">
         <User className="h-8 w-8 text-primary" />
-        <h2 className="text-4xl font-bold text-balance">Profile</h2>
+        <h2 className="text-4xl md:text-5xl font-pixel text-primary animate-pulse-slow">Profile</h2>
       </div>
 
       <Card>
@@ -25,16 +25,15 @@ export function Profile() {
 
             <div className="space-y-6">
               <div className="space-y-2">
-                <h3 className="text-2xl font-bold flex items-center space-x-3">
-                  <span>嘉村 虹縁</span>
-                  <span className="text-muted-foreground text-lg font-normal">(Kouen Yoshimura)</span>
+                <h3 className="text-2xl md:text-3xl font-pixel text-primary mb-4 drop-shadow-[0_0_10px_rgba(0,217,255,0.5)]">
+                  Kouen Yoshimura
                 </h3>
-                <div className="text-lg text-muted-foreground">
+                <div className="text-xl text-muted-foreground">
                   <p>名古屋工学院専門学校</p>
                   <p>情報総合学科</p>
                 </div>
               </div>
-              <p className="text-base text-muted-foreground leading-relaxed">
+              <p className="text-lg text-foreground/95 leading-loose">
                 情報系学学科で開発全般の知識を学び、web開発に興味を持つ27卒の専門学生です。
                 チーム開発やインターンシップを通じて実践的なスキルを身につけ、
                 ユーザー体験を重視したWebアプリケーション開発に取り組んでいます。

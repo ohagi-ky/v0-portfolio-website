@@ -75,15 +75,15 @@ export function Skills() {
     <section id="skills" className="space-y-6 scroll-mt-20">
       <div className="flex items-center justify-center space-x-3">
         <Code className="h-8 w-8 text-primary" />
-        <h2 className="text-4xl font-bold text-balance">Skills</h2>
+        <h2 className="text-4xl md:text-5xl font-pixel text-primary animate-pulse-slow">Skills</h2>
       </div>
 
       <div className="grid md:grid-cols-3 gap-6">
-        <Card className="border-2 border-primary/30">
+        <Card className="border-4 border-primary/30">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2 text-primary">
               <Code className="h-5 w-5" />
-              <span className="font-mono">プログラミング言語</span>
+              <span className="font-pixel text-xl">Languages</span>
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -95,11 +95,11 @@ export function Skills() {
           </CardContent>
         </Card>
 
-        <Card className="border-2 border-secondary/30">
+        <Card className="border-4 border-secondary/30">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2 text-secondary">
               <Code className="h-5 w-5" />
-              <span className="font-mono">フレームワーク</span>
+              <span className="font-pixel text-xl">Frameworks</span>
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -111,11 +111,11 @@ export function Skills() {
           </CardContent>
         </Card>
 
-        <Card className="border-2 border-accent/30">
+        <Card className="border-4 border-accent/30">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2 text-accent">
               <Code className="h-5 w-5" />
-              <span className="font-mono">ツール・技術</span>
+              <span className="font-pixel text-xl">Tools</span>
             </CardTitle>
           </CardHeader>
           <CardContent>

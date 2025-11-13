@@ -23,7 +23,7 @@ export function Links() {
     <section id="links" className="space-y-6 scroll-mt-20">
       <div className="flex items-center justify-center space-x-3">
         <LinkIcon className="h-8 w-8 text-primary" />
-        <h2 className="text-4xl font-bold text-balance">Links</h2>
+        <h2 className="text-4xl md:text-5xl font-pixel text-primary animate-pulse-slow">Links</h2>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
@@ -35,23 +35,23 @@ export function Links() {
             rel="noopener noreferrer"
             className="block transition-all hover:scale-110"
           >
-            <Card className="hover:shadow-lg transition-all cursor-pointer h-full border-2 border-primary/20 hover:border-primary">
+            <Card className="hover:shadow-xl hover:shadow-primary/30 transition-all cursor-pointer h-full border-4 border-primary/20 hover:border-primary">
               <CardContent className="p-6">
                 <div className="flex items-center space-x-4">
                   {link.icon === "github" ? (
-                    <Github className="h-8 w-8 text-primary flex-shrink-0" />
+                    <Github className="h-12 w-12 text-primary flex-shrink-0" />
                   ) : (
                     <Image
                       src="/images/qiita-logo.png"
                       alt="Qiita"
-                      width={32}
-                      height={32}
-                      className="h-8 w-8 flex-shrink-0"
+                      width={48}
+                      height={48}
+                      className="h-12 w-12 flex-shrink-0"
                     />
                   )}
                   <div>
-                    <h3 className="font-semibold text-lg">{link.name}</h3>
-                    <p className="text-sm text-muted-foreground">{link.description}</p>
+                    <h3 className="font-semibold text-2xl">{link.name}</h3>
+                    <p className="text-base text-muted-foreground">{link.description}</p>
                   </div>
                 </div>
               </CardContent>
