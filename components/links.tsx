@@ -23,7 +23,7 @@ export function Links() {
     <section id="links" className="space-y-6 scroll-mt-20">
       <div className="flex items-center justify-center space-x-3">
         <LinkIcon className="h-8 w-8 text-primary" />
-        <h2 className="text-4xl md:text-5xl font-pixel text-primary animate-pulse-slow">Links</h2>
+        <h2 className="text-4xl md:text-5xl text-primary animate-pulse-slow">Links</h2>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
@@ -50,8 +50,8 @@ export function Links() {
                     />
                   )}
                   <div>
-                    <h3 className="font-semibold text-2xl">{link.name}</h3>
-                    <p className="text-base text-muted-foreground">{link.description}</p>
+                    <h3 className="font-semibold text-2xl md:text-3xl">{link.name}</h3>
+                    <p className="text-base md:text-lg text-muted-foreground">{link.description}</p>
                   </div>
                 </div>
               </CardContent>

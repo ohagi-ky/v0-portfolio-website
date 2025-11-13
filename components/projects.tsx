@@ -103,12 +103,14 @@ export function Projects() {
     <section id="projects" className="space-y-8 scroll-mt-20">
       <div className="flex items-center justify-center space-x-3">
         <Briefcase className="h-8 w-8 text-primary" />
-        <h2 className="text-4xl md:text-5xl font-pixel text-primary animate-pulse-slow">Projects</h2>
+        <h2 className="text-4xl md:text-5xl text-primary animate-pulse-slow">Projects</h2>
       </div>
 
       {/* プロジェクト */}
       <div className="space-y-4">
-        <h3 className="text-2xl font-pixel text-secondary drop-shadow-[0_0_8px_rgba(255,0,255,0.5)]">Projects</h3>
+        <h3 className="text-2xl md:text-3xl font-bold text-secondary drop-shadow-[0_0_8px_rgba(255,0,255,0.5)]">
+          Projects
+        </h3>
         <div className="grid gap-6">
           {projects.map((project, index) => (
             <Card
@@ -131,9 +133,11 @@ export function Projects() {
                       ) : (
                         <project.icon className="h-6 w-6 text-primary" />
                       )}
-                      <span className="font-pixel text-xl">{project.title}</span>
-                      <Badge variant="outline">{project.type}</Badge>
-                      <Badge variant="outline">{`開発人数:${project.developers}`}</Badge>
+                      <span className="text-2xl md:text-3xl font-bold">{project.title}</span>
+                      <Badge variant="outline" className="text-base">
+                        {project.type}
+                      </Badge>
+                      <Badge variant="outline" className="text-base">{`開発人数:${project.developers}`}</Badge>
                     </div>
                     <div className="flex space-x-2">
                       <Button variant="outline" size="sm" asChild>
@@ -184,12 +188,12 @@ export function Projects() {
                       </div>
                     </div>
                     <div className="md:w-1/2 flex flex-col justify-center space-y-4">
-                      <p className="text-lg text-foreground/95 leading-relaxed">{project.description}</p>
+                      <p className="text-lg md:text-xl text-foreground/95 leading-relaxed">{project.description}</p>
                       <div>
-                        <h4 className="text-base font-semibold mb-2">使用技術</h4>
+                        <h4 className="text-lg md:text-xl font-semibold mb-2">使用技術</h4>
                         <div className="flex flex-wrap gap-2">
                           {project.technologies.map((tech) => (
-                            <Badge key={tech} variant="secondary" className="text-lg px-4 py-1">
+                            <Badge key={tech} variant="secondary" className="text-base md:text-lg px-4 py-1">
                               {tech}
                             </Badge>
                           ))}
@@ -217,20 +221,26 @@ export function Projects() {
                       {isComipDetailOpen && (
                         <div className="mt-4 space-y-4 animate-in slide-in-from-top-2">
                           <div>
-                            <h4 className="text-xl font-bold text-primary mb-2">制作背景</h4>
-                            <p className="text-base text-foreground/90 leading-relaxed">{project.details.background}</p>
+                            <h4 className="text-xl md:text-2xl font-bold text-primary mb-2">制作背景</h4>
+                            <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
+                              {project.details.background}
+                            </p>
                           </div>
                           <div>
-                            <h4 className="text-xl font-bold text-primary mb-2">技術選定理由</h4>
-                            <p className="text-base text-foreground/90 leading-relaxed">{project.details.techReason}</p>
+                            <h4 className="text-xl md:text-2xl font-bold text-primary mb-2">技術選定理由</h4>
+                            <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
+                              {project.details.techReason}
+                            </p>
                           </div>
                           <div>
-                            <h4 className="text-xl font-bold text-primary mb-2">結果</h4>
-                            <p className="text-base text-foreground/90 leading-relaxed">{project.details.result}</p>
+                            <h4 className="text-xl md:text-2xl font-bold text-primary mb-2">結果</h4>
+                            <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
+                              {project.details.result}
+                            </p>
                           </div>
                           <div>
-                            <h4 className="text-xl font-bold text-primary mb-2">改善点</h4>
-                            <p className="text-base text-foreground/90 leading-relaxed">
+                            <h4 className="text-xl md:text-2xl font-bold text-primary mb-2">改善点</h4>
+                            <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
                               {project.details.improvement}
                             </p>
                           </div>
@@ -247,7 +257,9 @@ export function Projects() {
 
       {/* インターンシップ */}
       <div className="space-y-4">
-        <h3 className="text-2xl font-pixel text-secondary drop-shadow-[0_0_8px_rgba(255,0,255,0.5)]">Internship</h3>
+        <h3 className="text-2xl md:text-3xl font-bold text-secondary drop-shadow-[0_0_8px_rgba(255,0,255,0.5)]">
+          Internship
+        </h3>
         <div className="grid gap-6">
           {internships.map((internship, index) => (
             <Card key={index}>
@@ -255,8 +267,8 @@ export function Projects() {
                 <CardTitle className="flex items-center space-x-3">
                   <Briefcase className="h-6 w-6 text-primary" />
                   <div>
-                    <div>{internship.company}</div>
-                    <div className="text-sm text-muted-foreground font-normal">
+                    <div className="text-xl md:text-2xl">{internship.company}</div>
+                    <div className="text-base md:text-lg text-muted-foreground font-normal">
                       {internship.role} • {internship.period}
                     </div>
                   </div>
@@ -274,7 +286,7 @@ export function Projects() {
                     }
                   }}
                 >
-                  <p className="text-lg text-foreground/90 leading-relaxed group-hover:text-foreground transition-colors">
+                  <p className="text-base md:text-lg text-foreground/90 leading-relaxed group-hover:text-foreground transition-colors">
                     {expandedInternships[index] ? internship.fullDescription : internship.shortDescription}
                     <span className="ml-2 text-primary font-semibold">
                       {expandedInternships[index] ? "▲ 閉じる" : "▼ 続きを読む"}

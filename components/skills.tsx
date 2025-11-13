@@ -75,15 +75,15 @@ export function Skills() {
     <section id="skills" className="space-y-6 scroll-mt-20">
       <div className="flex items-center justify-center space-x-3">
         <Code className="h-8 w-8 text-primary" />
-        <h2 className="text-4xl md:text-5xl font-pixel text-primary animate-pulse-slow">Skills</h2>
+        <h2 className="text-4xl md:text-5xl text-primary animate-pulse-slow">Skills</h2>
       </div>
 
       <div className="grid md:grid-cols-3 gap-6">
         <Card className="border-4 border-primary/30">
           <CardHeader>
-            <CardTitle className="flex items-center space-x-2 text-primary">
+            <CardTitle className="flex items-center space-x-2 text-primary text-xl md:text-2xl">
               <Code className="h-5 w-5" />
-              <span className="font-pixel text-xl">Languages</span>
+              <span>Languages</span>
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -97,9 +97,9 @@ export function Skills() {
 
         <Card className="border-4 border-secondary/30">
           <CardHeader>
-            <CardTitle className="flex items-center space-x-2 text-secondary">
+            <CardTitle className="flex items-center space-x-2 text-secondary text-xl md:text-2xl">
               <Code className="h-5 w-5" />
-              <span className="font-pixel text-xl">Frameworks</span>
+              <span>Frameworks</span>
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -113,9 +113,9 @@ export function Skills() {
 
         <Card className="border-4 border-accent/30">
           <CardHeader>
-            <CardTitle className="flex items-center space-x-2 text-accent">
+            <CardTitle className="flex items-center space-x-2 text-accent text-xl md:text-2xl">
               <Code className="h-5 w-5" />
-              <span className="font-pixel text-xl">Tools</span>
+              <span>Tools</span>
             </CardTitle>
           </CardHeader>
           <CardContent>
