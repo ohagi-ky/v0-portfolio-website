@@ -8,15 +8,15 @@ export function Profile() {
   const [isDetailOpen, setIsDetailOpen] = useState(false)
 
   return (
-    <section id="profile" className="space-y-6 scroll-mt-20">
+    <section id="profile" className="space-y-8 scroll-mt-20">
       <div className="flex items-center justify-center space-x-3">
         <User className="h-8 w-8 text-primary" />
-        <h2 className="text-4xl md:text-5xl text-primary animate-pulse-slow">Profile</h2>
+        <h2 className="text-4xl font-bold text-balance">Profile</h2>
       </div>
 
       <Card>
-        <CardContent className="p-8">
-          <div className="grid md:grid-cols-2 gap-6 items-center">
+        <CardContent className="p-10">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="flex justify-center md:justify-start">
               <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg">
                 <img src="/profile.jpg" alt="Kouen Yoshimura" className="w-full h-full object-cover" />
@@ -25,15 +25,16 @@ export function Profile() {
 
             <div className="space-y-6">
               <div className="space-y-2">
-                <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4 drop-shadow-[0_0_10px_rgba(0,217,255,0.5)]">
-                  Kouen Yoshimura
+                <h3 className="text-2xl font-bold flex items-center space-x-3">
+                  <span>嘉村 虹縁</span>
+                  <span className="text-muted-foreground text-lg font-normal">(Kouen Yoshimura)</span>
                 </h3>
-                <div className="text-xl md:text-2xl text-muted-foreground">
+                <div className="text-xl text-muted-foreground">
                   <p>名古屋工学院専門学校</p>
                   <p>情報総合学科</p>
                 </div>
               </div>
-              <p className="text-lg md:text-xl text-foreground/95 leading-loose">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 情報系学学科で開発全般の知識を学び、web開発に興味を持つ27卒の専門学生です。
                 チーム開発やインターンシップを通じて実践的なスキルを身につけ、
                 ユーザー体験を重視したWebアプリケーション開発に取り組んでいます。
@@ -51,21 +52,23 @@ export function Profile() {
             </button>
 
             {isDetailOpen && (
-              <div className="mt-6 space-y-6 animate-in fade-in slide-in-from-top-2 duration-300">
+              <div className="mt-6 space-y-8 animate-in fade-in slide-in-from-top-2 duration-300">
+                {/* エンジニアを目指すきっかけ */}
                 <div className="space-y-3">
-                  <h4 className="text-xl md:text-2xl font-bold text-primary border-l-4 border-primary pl-3">
+                  <h4 className="text-xl font-bold text-primary border-l-4 border-primary pl-3">
                     エンジニアを目指すきっかけ
                   </h4>
-                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed pl-3">
+                  <p className="text-base text-muted-foreground leading-relaxed pl-3">
                     コロナ禍で外出が制限されていた時期、ECサイトをはじめとするインターネットサービスに支えられ、その便利さや仕組みに感動しました。そこから、社会に大きな価値を届けるエンジニアという仕事に強く興味を持ち、目指すようになりました。
                   </p>
                 </div>
 
+                {/* なりたいエンジニア像 */}
                 <div className="space-y-3">
-                  <h4 className="text-xl md:text-2xl font-bold text-primary border-l-4 border-primary pl-3">
+                  <h4 className="text-xl font-bold text-primary border-l-4 border-primary pl-3">
                     なりたいエンジニア像
                   </h4>
-                  <div className="text-base md:text-lg text-muted-foreground leading-relaxed pl-3 space-y-3">
+                  <div className="text-base text-muted-foreground leading-relaxed pl-3 space-y-3">
                     <p>
                       私は、企業のカルチャーを理解・吸収し、その中で自分自身も成長しながらカルチャーを育てていけるエンジニアを目指しています。新卒として入社した直後は、まずは基礎的な技術力や業務知識を身につけ、一人前のエンジニアとして信頼される存在になることを第一の目標としています。そのうえで、チームの一員として周囲と協力しながら、着実に成果を出せるよう取り組んでいきたいと考えています。
                     </p>
@@ -78,11 +81,10 @@ export function Profile() {
                   </div>
                 </div>
 
+                {/* 自分の強み */}
                 <div className="space-y-3">
-                  <h4 className="text-xl md:text-2xl font-bold text-primary border-l-4 border-primary pl-3">
-                    自分の強み
-                  </h4>
-                  <div className="text-base md:text-lg text-muted-foreground leading-relaxed pl-3 space-y-3">
+                  <h4 className="text-xl font-bold text-primary border-l-4 border-primary pl-3">自分の強み</h4>
+                  <div className="text-base text-muted-foreground leading-relaxed pl-3 space-y-3">
                     <p>
                       私の強みは、チームを俯瞰して物事を捉え、他者の視点を意識しながら行動できることです。開発においては「自分」ではなく「チーム」を主語に考え、個々の成果ではなく全体の成果を重視して取り組んできました。そのために一人で抱え込まず周囲を巻き込みながら課題を解決する姿勢を大切にしています。
                     </p>
@@ -95,11 +97,12 @@ export function Profile() {
                   </div>
                 </div>
 
+                {/* 学生時代に頑張ったこと */}
                 <div className="space-y-3">
-                  <h4 className="text-xl md:text-2xl font-bold text-primary border-l-4 border-primary pl-3">
+                  <h4 className="text-xl font-bold text-primary border-l-4 border-primary pl-3">
                     学生時代に頑張ったこと
                   </h4>
-                  <div className="text-base md:text-lg text-muted-foreground leading-relaxed pl-3 space-y-3">
+                  <div className="text-base text-muted-foreground leading-relaxed pl-3 space-y-3">
                     <p>
                       学生時代に最も力を入れたのは、チームで開発したアプリ「こみっぷ」の制作です。
                       開発の初期段階ではメンバー間で進捗共有やタスクの理解が十分にできておらず、開発の効率が落ちたり、タスクの内容と違うプログラムが作られることがありました。
@@ -115,11 +118,10 @@ export function Profile() {
                   </div>
                 </div>
 
+                {/* 企業を選ぶ軸 */}
                 <div className="space-y-3">
-                  <h4 className="text-xl md:text-2xl font-bold text-primary border-l-4 border-primary pl-3">
-                    企業を選ぶ軸
-                  </h4>
-                  <div className="text-base md:text-lg text-muted-foreground leading-relaxed pl-3 space-y-3">
+                  <h4 className="text-xl font-bold text-primary border-l-4 border-primary pl-3">企業を選ぶ軸</h4>
+                  <div className="text-base text-muted-foreground leading-relaxed pl-3 space-y-3">
                     <p>私が企業を選ぶ際の軸は、大きく3つあります。</p>
                     <p>
                       <strong>1つ目は、ユーザーの視点に立ち、ユーザー体験を大切にしていることです。</strong>

@@ -103,153 +103,140 @@ export function Projects() {
     <section id="projects" className="space-y-8 scroll-mt-20">
       <div className="flex items-center justify-center space-x-3">
         <Briefcase className="h-8 w-8 text-primary" />
-        <h2 className="text-4xl md:text-5xl text-primary animate-pulse-slow">Projects</h2>
+        <h2 className="text-4xl font-bold text-balance">Projects & Experience</h2>
       </div>
 
       {/* プロジェクト */}
       <div className="space-y-4">
-        <h3 className="text-2xl md:text-3xl font-bold text-secondary drop-shadow-[0_0_8px_rgba(255,0,255,0.5)]">
-          Projects
-        </h3>
+        <h3 className="text-xl font-semibold">開発プロジェクト</h3>
         <div className="grid gap-6">
           {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="border-2 border-primary/30 hover:border-primary/60 transition-all duration-300 shadow-xl"
-            >
-              <>
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      {project.iconImage ? (
-                        <div className="relative h-10 w-10 rounded-full overflow-hidden border-2 border-primary">
-                          <Image
-                            src={project.iconImage || "/placeholder.svg"}
-                            alt={`${project.title} icon`}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                      ) : (
-                        <project.icon className="h-6 w-6 text-primary" />
-                      )}
-                      <span className="text-2xl md:text-3xl font-bold">{project.title}</span>
-                      <Badge variant="outline" className="text-base">
-                        {project.type}
-                      </Badge>
-                      <Badge variant="outline" className="text-base">{`開発人数:${project.developers}`}</Badge>
-                    </div>
-                    <div className="flex space-x-2">
-                      <Button variant="outline" size="sm" asChild>
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                          <Github className="h-4 w-4 mr-2" />
-                          GitHub
-                        </a>
-                      </Button>
-                      <Button variant="outline" size="sm" asChild>
-                        <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
-                          <Image
-                            src="/images/qiita-logo.png"
-                            alt="Qiita"
-                            width={16}
-                            height={16}
-                            className="h-4 w-4 mr-2"
-                          />
-                          Qiita
-                        </a>
-                      </Button>
-                    </div>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-col md:flex-row gap-6">
-                    <div className="md:w-1/2 flex gap-3">
-                      <div className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border">
-                        <Image
-                          src={project.imageUrl2 || "/placeholder.svg"}
-                          alt={`${project.title}のスクリーンショット2`}
-                          fill
-                          className="object-contain"
-                          onError={(e) => {
-                            e.currentTarget.src = `/placeholder.svg?height=320&width=200&text=${encodeURIComponent(project.title)}`
-                          }}
-                        />
-                      </div>
-                      <div className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border">
-                        <Image
-                          src={project.imageUrl || "/placeholder.svg"}
-                          alt={`${project.title}のスクリーンショット1`}
-                          fill
-                          className="object-contain"
-                          onError={(e) => {
-                            e.currentTarget.src = `/placeholder.svg?height=320&width=200&text=${encodeURIComponent(project.title)}`
-                          }}
-                        />
-                      </div>
-                    </div>
-                    <div className="md:w-1/2 flex flex-col justify-center space-y-4">
-                      <p className="text-lg md:text-xl text-foreground/95 leading-relaxed">{project.description}</p>
-                      <div>
-                        <h4 className="text-lg md:text-xl font-semibold mb-2">使用技術</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {project.technologies.map((tech) => (
-                            <Badge key={tech} variant="secondary" className="text-base md:text-lg px-4 py-1">
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {project.details && (
-                    <div className="mt-6 border-t pt-4">
-                      <Button
-                        variant="default"
-                        size="lg"
-                        className="w-full flex items-center justify-between bg-primary/10 hover:bg-primary/20 text-primary border-2 border-primary/30 hover:border-primary transition-all"
-                        onClick={() => setIsComipDetailOpen(!isComipDetailOpen)}
-                      >
-                        <span className="font-bold text-base">📖 プロジェクト詳細を見る</span>
-                        {isComipDetailOpen ? (
-                          <ChevronUp className="h-6 w-6 font-bold" />
+            <Card key={index}>
+              {
+                <>
+                  <CardHeader>
+                    <CardTitle className="flex items-center justify-between">
+                      <div className="flex items-center space-x-3">
+                        {project.iconImage ? (
+                          <div className="relative h-10 w-10 rounded-full overflow-hidden border-2 border-primary">
+                            <Image
+                              src={project.iconImage || "/placeholder.svg"}
+                              alt={`${project.title} icon`}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
                         ) : (
-                          <ChevronDown className="h-6 w-6 font-bold" />
+                          <project.icon className="h-6 w-6 text-primary" />
                         )}
-                      </Button>
-
-                      {isComipDetailOpen && (
-                        <div className="mt-4 space-y-4 animate-in slide-in-from-top-2">
-                          <div>
-                            <h4 className="text-xl md:text-2xl font-bold text-primary mb-2">制作背景</h4>
-                            <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                              {project.details.background}
-                            </p>
-                          </div>
-                          <div>
-                            <h4 className="text-xl md:text-2xl font-bold text-primary mb-2">技術選定理由</h4>
-                            <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                              {project.details.techReason}
-                            </p>
-                          </div>
-                          <div>
-                            <h4 className="text-xl md:text-2xl font-bold text-primary mb-2">結果</h4>
-                            <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                              {project.details.result}
-                            </p>
-                          </div>
-                          <div>
-                            <h4 className="text-xl md:text-2xl font-bold text-primary mb-2">改善点</h4>
-                            <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                              {project.details.improvement}
-                            </p>
+                        <span>{project.title}</span>
+                        <Badge variant="outline">{project.type}</Badge>
+                        <Badge variant="outline">{`開発人数:${project.developers}`}</Badge>
+                      </div>
+                      <div className="flex space-x-2">
+                        <Button variant="outline" size="sm" asChild>
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Github className="h-4 w-4 mr-2" />
+                            GitHub
+                          </a>
+                        </Button>
+                        <Button variant="outline" size="sm" asChild>
+                          <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
+                            <Image
+                              src="/images/qiita-logo.png"
+                              alt="Qiita"
+                              width={16}
+                              height={16}
+                              className="h-4 w-4 mr-2"
+                            />
+                            Qiita
+                          </a>
+                        </Button>
+                      </div>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-col md:flex-row gap-6">
+                      <div className="md:w-1/2 flex gap-3">
+                        <div className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border">
+                          <Image
+                            src={project.imageUrl2 || "/placeholder.svg"}
+                            alt={`${project.title}のスクリーンショット2`}
+                            fill
+                            className="object-contain"
+                            onError={(e) => {
+                              e.currentTarget.src = `/placeholder.svg?height=320&width=200&text=${encodeURIComponent(project.title)}`
+                            }}
+                          />
+                        </div>
+                        <div className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border">
+                          <Image
+                            src={project.imageUrl || "/placeholder.svg"}
+                            alt={`${project.title}のスクリーンショット1`}
+                            fill
+                            className="object-contain"
+                            onError={(e) => {
+                              e.currentTarget.src = `/placeholder.svg?height=320&width=200&text=${encodeURIComponent(project.title)}`
+                            }}
+                          />
+                        </div>
+                      </div>
+                      <div className="md:w-1/2 flex flex-col justify-center space-y-4">
+                        <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+                        <div>
+                          <h4 className="text-sm font-semibold mb-2">使用技術</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {project.technologies.map((tech) => (
+                              <Badge key={tech} variant="secondary" className="text-base px-3 py-1">
+                                {tech}
+                              </Badge>
+                            ))}
                           </div>
                         </div>
-                      )}
+                      </div>
                     </div>
-                  )}
-                </CardContent>
-              </>
+
+                    {project.details && (
+                      <div className="mt-6 border-t pt-4">
+                        <Button
+                          variant="default"
+                          size="lg"
+                          className="w-full flex items-center justify-between bg-primary/10 hover:bg-primary/20 text-primary border-2 border-primary/30 hover:border-primary transition-all"
+                          onClick={() => setIsComipDetailOpen(!isComipDetailOpen)}
+                        >
+                          <span className="font-bold text-base">📖 プロジェクト詳細を見る</span>
+                          {isComipDetailOpen ? (
+                            <ChevronUp className="h-6 w-6 font-bold" />
+                          ) : (
+                            <ChevronDown className="h-6 w-6 font-bold" />
+                          )}
+                        </Button>
+
+                        {isComipDetailOpen && (
+                          <div className="mt-4 space-y-4 animate-in slide-in-from-top-2">
+                            <div>
+                              <h4 className="font-semibold text-primary mb-2">制作背景</h4>
+                              <p className="text-muted-foreground leading-relaxed">{project.details.background}</p>
+                            </div>
+                            <div>
+                              <h4 className="font-semibold text-primary mb-2">技術選定理由</h4>
+                              <p className="text-muted-foreground leading-relaxed">{project.details.techReason}</p>
+                            </div>
+                            <div>
+                              <h4 className="font-semibold text-primary mb-2">結果</h4>
+                              <p className="text-muted-foreground leading-relaxed">{project.details.result}</p>
+                            </div>
+                            <div>
+                              <h4 className="font-semibold text-primary mb-2">改善点</h4>
+                              <p className="text-muted-foreground leading-relaxed">{project.details.improvement}</p>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </CardContent>
+                </>
+              }
             </Card>
           ))}
         </div>
@@ -257,9 +244,7 @@ export function Projects() {
 
       {/* インターンシップ */}
       <div className="space-y-4">
-        <h3 className="text-2xl md:text-3xl font-bold text-secondary drop-shadow-[0_0_8px_rgba(255,0,255,0.5)]">
-          Internship
-        </h3>
+        <h3 className="text-xl font-semibold">インターンシップ経験</h3>
         <div className="grid gap-6">
           {internships.map((internship, index) => (
             <Card key={index}>
@@ -267,8 +252,8 @@ export function Projects() {
                 <CardTitle className="flex items-center space-x-3">
                   <Briefcase className="h-6 w-6 text-primary" />
                   <div>
-                    <div className="text-xl md:text-2xl">{internship.company}</div>
-                    <div className="text-base md:text-lg text-muted-foreground font-normal">
+                    <div>{internship.company}</div>
+                    <div className="text-sm text-muted-foreground font-normal">
                       {internship.role} • {internship.period}
                     </div>
                   </div>
@@ -286,7 +271,7 @@ export function Projects() {
                     }
                   }}
                 >
-                  <p className="text-base md:text-lg text-foreground/90 leading-relaxed group-hover:text-foreground transition-colors">
+                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
                     {expandedInternships[index] ? internship.fullDescription : internship.shortDescription}
                     <span className="ml-2 text-primary font-semibold">
                       {expandedInternships[index] ? "▲ 閉じる" : "▼ 続きを読む"}
