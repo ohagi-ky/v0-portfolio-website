@@ -23,7 +23,6 @@ export function Projects() {
       iconImage: "/images/comip-icon.png",
       imageUrl: "/images/comip-screen.png",
       imageUrl2: "/images/comip-screen2.png",
-      inDevelopment: false,
     },
     {
       title: "gemaneko",
@@ -36,19 +35,17 @@ export function Projects() {
       qiitaUrl: "https://qiita.com/OhaGi_/items/f3ca0c144aca495344a7",
       imageUrl: "/images/gemaneko-screen1.png",
       imageUrl2: "/images/gemaneko-screen2.png",
-      inDevelopment: false,
     },
     {
       title: "OshiSup",
       type: "チーム開発",
       developers: "2人",
-      description:
-        "推し活をサポートするWebアプリケーションです。推しへの支出を管理・可視化し、月別グラフで推し活の記録を確認できます。",
+      description: "推し活をサポートするWebアプリケーションです。イベント管理や推し活記録の機能を提供します。",
       technologies: ["React", "Vite", "Fire Store"],
       githubUrl: "https://github.com/ohagi-ky/OshiSup",
       qiitaUrl: "https://qiita.com/OhaGi_/items/oshisup-development",
+      iconImage: "/images/oshisup.jpg",
       imageUrl: "/images/oshisup-screen.jpg",
-      inDevelopment: true,
     },
   ]
 
@@ -109,34 +106,27 @@ export function Projects() {
                     <span>{project.title}</span>
                     <Badge variant="outline">{project.type}</Badge>
                     <Badge variant="outline">{`開発人数:${project.developers}`}</Badge>
-                    {project.inDevelopment && (
-                      <Badge variant="secondary" className="bg-yellow-500/20 text-yellow-600 border-yellow-500/30">
-                        開発中
-                      </Badge>
-                    )}
                   </div>
-                  {!project.inDevelopment && (
-                    <div className="flex space-x-2">
-                      <Button variant="outline" size="sm" asChild>
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                          <Github className="h-4 w-4 mr-2" />
-                          GitHub
-                        </a>
-                      </Button>
-                      <Button variant="outline" size="sm" asChild>
-                        <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
-                          <Image
-                            src="/images/qiita-logo.png"
-                            alt="Qiita"
-                            width={16}
-                            height={16}
-                            className="h-4 w-4 mr-2"
-                          />
-                          Qiita
-                        </a>
-                      </Button>
-                    </div>
-                  )}
+                  <div className="flex space-x-2">
+                    <Button variant="outline" size="sm" asChild>
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                        <Github className="h-4 w-4 mr-2" />
+                        GitHub
+                      </a>
+                    </Button>
+                    <Button variant="outline" size="sm" asChild>
+                      <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
+                        <Image
+                          src="/images/qiita-logo.png"
+                          alt="Qiita"
+                          width={16}
+                          height={16}
+                          className="h-4 w-4 mr-2"
+                        />
+                        Qiita
+                      </a>
+                    </Button>
+                  </div>
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -202,36 +192,19 @@ export function Projects() {
                   </div>
                 </div>
 
-                {!project.inDevelopment && (
-                  <div className="mt-6 border-t pt-4">
-                    <Button
-                      variant="default"
-                      size="lg"
-                      className="w-full flex items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base"
-                      asChild
-                    >
-                      <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
-                        <Image
-                          src="/images/qiita-logo.png"
-                          alt="Qiita"
-                          width={20}
-                          height={20}
-                          className="h-5 w-5 mr-2"
-                        />
-                        Qiitaで詳細を見る
-                      </a>
-                    </Button>
-                  </div>
-                )}
-                {project.inDevelopment && (
-                  <div className="mt-6 border-t pt-4">
-                    <div className="text-center p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
-                      <p className="text-yellow-600 font-semibold">
-                        🚧 現在開発中のプロジェクトです。完成後にGitHub・Qiitaで公開予定です。
-                      </p>
-                    </div>
-                  </div>
-                )}
+                <div className="mt-6 border-t pt-4">
+                  <Button
+                    variant="default"
+                    size="lg"
+                    className="w-full flex items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base"
+                    asChild
+                  >
+                    <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
+                      <Image src="/images/qiita-logo.png" alt="Qiita" width={20} height={20} className="h-5 w-5 mr-2" />
+                      Qiitaで詳細を見る
+                    </a>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}
