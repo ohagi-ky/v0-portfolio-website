@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Briefcase, Github, Users, Bot } from "lucide-react"
+import { Briefcase, Github } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
 
@@ -20,7 +20,6 @@ export function Projects() {
       technologies: ["Kotlin", "Android Studio", "Jetpack Compose"],
       githubUrl: "https://github.com/TYTTNTeam/ComikeApp",
       qiitaUrl: "https://qiita.com/OhaGi_/items/94a6503033b1d91bb405",
-      icon: Users,
       iconImage: "/images/comip-icon.png",
       imageUrl: "/images/comip-screen.png",
       imageUrl2: "/images/comip-screen2.png",
@@ -34,10 +33,7 @@ export function Projects() {
       technologies: ["Python", "discord.py", "Google Cloud", "Cloud Engine"],
       githubUrl: "https://github.com/ohagi-ky/gemaneko",
       qiitaUrl: "https://qiita.com/OhaGi_/items/f3ca0c144aca495344a7",
-      icon: Bot,
-      iconImage: "/images/comip-icon.png",
       imageUrl: "/images/gemaneko.jpg",
-      imageUrl2: "/images/comip-screen2.png",
     },
     {
       title: "OshiSup",
@@ -47,7 +43,6 @@ export function Projects() {
       technologies: ["React", "Vite", "Fire Store"],
       githubUrl: "https://github.com/ohagi-ky/OshiSup",
       qiitaUrl: "https://qiita.com/OhaGi_/items/oshisup-development",
-      icon: Users,
       imageUrl: "/images/oshisup.jpg",
     },
   ]
@@ -104,7 +99,7 @@ export function Projects() {
                         />
                       </div>
                     ) : (
-                      <project.icon className="h-6 w-6 text-primary" />
+                      <Briefcase className="h-6 w-6 text-primary" />
                     )}
                     <span>{project.title}</span>
                     <Badge variant="outline">{project.type}</Badge>
@@ -117,7 +112,7 @@ export function Projects() {
                         GitHub
                       </a>
                     </Button>
-                    <Button variant="default" size="sm" asChild className="bg-primary hover:bg-primary/90">
+                    <Button variant="outline" size="sm" asChild>
                       <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
                         <Image
                           src="/images/qiita-logo.png"
@@ -126,7 +121,7 @@ export function Projects() {
                           height={16}
                           className="h-4 w-4 mr-2"
                         />
-                        Qiita記事
+                        Qiita
                       </a>
                     </Button>
                   </div>
@@ -134,30 +129,37 @@ export function Projects() {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-col md:flex-row gap-6">
-                  <div className="md:w-1/2 flex gap-3">
-                    <div className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border">
-                      <Image
-                        src={project.imageUrl2 || "/placeholder.svg"}
-                        alt={`${project.title}のスクリーンショット2`}
-                        fill
-                        className="object-contain"
-                        onError={(e) => {
-                          e.currentTarget.src = `/placeholder.svg?height=320&width=200&text=${encodeURIComponent(project.title)}`
-                        }}
-                      />
+                  {project.imageUrl2 ? (
+                    <div className="md:w-1/2 flex gap-3">
+                      <div className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border">
+                        <Image
+                          src={project.imageUrl2 || "/placeholder.svg"}
+                          alt={`${project.title}のスクリーンショット2`}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                      <div className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border">
+                        <Image
+                          src={project.imageUrl || "/placeholder.svg"}
+                          alt={`${project.title}のスクリーンショット1`}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
                     </div>
-                    <div className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border">
-                      <Image
-                        src={project.imageUrl || "/placeholder.svg"}
-                        alt={`${project.title}のスクリーンショット1`}
-                        fill
-                        className="object-contain"
-                        onError={(e) => {
-                          e.currentTarget.src = `/placeholder.svg?height=320&width=200&text=${encodeURIComponent(project.title)}`
-                        }}
-                      />
+                  ) : (
+                    <div className="md:w-1/2">
+                      <div className="relative w-full h-80 rounded-lg overflow-hidden bg-muted border-2 border-border">
+                        <Image
+                          src={project.imageUrl || "/placeholder.svg"}
+                          alt={`${project.title}のスクリーンショット`}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
                     </div>
-                  </div>
+                  )}
                   <div className="md:w-1/2 flex flex-col justify-center space-y-4">
                     <p className="text-muted-foreground leading-relaxed">{project.description}</p>
                     <div>
@@ -172,10 +174,27 @@ export function Projects() {
                     </div>
                   </div>
                 </div>
+
+                <div className="mt-6 border-t pt-4">
+                  <Button
+                    variant="default"
+                    size="lg"
+                    className="w-full flex items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base"
+                    asChild
+                  >
+                    <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
+                      <Image src="/images/qiita-logo.png" alt="Qiita" width={20} height={20} className="h-5 w-5 mr-2" />
+                      Qiitaで詳細を見る
+                    </a>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}
         </div>
+        <p className="text-muted-foreground text-sm mt-4 text-center">
+          上記に加えて、専門学校での授業でチーム開発を数回経験しました。
+        </p>
       </div>
 
       {/* インターンシップ */}
