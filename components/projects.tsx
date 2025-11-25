@@ -3,12 +3,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Briefcase, Github, Users, Bot, ChevronDown, ChevronUp } from "lucide-react"
+import { Briefcase, Github, Users, Bot } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
 
 export function Projects() {
-  const [isComipDetailOpen, setIsComipDetailOpen] = useState(false)
   const [expandedInternships, setExpandedInternships] = useState<Record<number, boolean>>({})
 
   const projects = [
@@ -25,16 +24,6 @@ export function Projects() {
       iconImage: "/images/comip-icon.png",
       imageUrl: "/images/comip-screen.png",
       imageUrl2: "/images/comip-screen2.png",
-      details: {
-        background:
-          "コミックマーケットでは広大な会場で目的のサークルを見つけるのが困難という課題がありました。既存の地図アプリでは会場内の詳細な配置図を扱えず、紙の地図では検索や共有が不便でした。この問題を解決するため、デジタル地図上でサークル位置を管理・共有できるアプリを開発しました。",
-        techReason:
-          "Kotlinは型安全性が高く、Androidアプリ開発の公式言語として推奨されているため採用しました。Jetpack Composeは宣言的UIにより開発効率が高く、地図表示などの複雑なUIを直感的に実装できる点が魅力でした。また、チームメンバーがAndroid開発に興味を持っていたことも決め手となりました。",
-        result:
-          "5人のチームで約3ヶ月かけて開発し、地図の追加・閲覧・検索機能を実装しました。ユーザーは自分の地図を作成し、サークル位置をマーキングして友人と共有できるようになりました。実際のコミケ参加者からも「会場で迷わなくなった」との好評を得ました。",
-        improvement:
-          "現在はオフライン機能が不十分なため、会場の通信環境が悪い場合に使いづらい点が課題です。今後はローカルデータベースを活用したオフライン対応や、リアルタイムでの位置共有機能の追加を検討しています。また、UIのアクセシビリティ向上も改善点として挙げられます。",
-      },
     },
     {
       title: "gemaneko",
@@ -49,16 +38,6 @@ export function Projects() {
       iconImage: "/images/comip-icon.png",
       imageUrl: "/images/gemaneko.jpg",
       imageUrl2: "/images/comip-screen2.png",
-      details: {
-        background:
-          "コミックマーケットでは広大な会場で目的のサークルを見つけるのが困難という課題がありました。既存の地図アプリでは会場内の詳細な配置図を扱えず、紙の地図では検索や共有が不便でした。この問題を解決するため、デジタル地図上でサークル位置を管理・共有できるアプリを開発しました。",
-        techReason:
-          "Kotlinは型安全性が高く、Androidアプリ開発の公式言語として推奨されているため採用しました。Jetpack Composeは宣言的UIにより開発効率が高く、地図表示などの複雑なUIを直感的に実装できる点が魅力でした。また、チームメンバーがAndroid開発に興味を持っていたことも決め手となりました。",
-        result:
-          "5人のチームで約3ヶ月かけて開発し、地図の追加・閲覧・検索機能を実装しました。ユーザーは自分の地図を作成し、サークル位置をマーキングして友人と共有できるようになりました。実際のコミケ参加者からも「会場で迷わなくなった」との好評を得ました。",
-        improvement:
-          "現在はオフライン機能が不十分なため、会場の通信環境が悪い場合に使いづらい点が課題です。今後はローカルデータベースを活用したオフライン対応や、リアルタイムでの位置共有機能の追加を検討しています。また、UIのアクセシビリティ向上も改善点として挙げられます。",
-      },
     },
     {
       title: "OshiSup",
@@ -112,131 +91,88 @@ export function Projects() {
         <div className="grid gap-6">
           {projects.map((project, index) => (
             <Card key={index}>
-              {
-                <>
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-between">
-                      <div className="flex items-center space-x-3">
-                        {project.iconImage ? (
-                          <div className="relative h-10 w-10 rounded-full overflow-hidden border-2 border-primary">
-                            <Image
-                              src={project.iconImage || "/placeholder.svg"}
-                              alt={`${project.title} icon`}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                        ) : (
-                          <project.icon className="h-6 w-6 text-primary" />
-                        )}
-                        <span>{project.title}</span>
-                        <Badge variant="outline">{project.type}</Badge>
-                        <Badge variant="outline">{`開発人数:${project.developers}`}</Badge>
+              <CardHeader>
+                <CardTitle className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    {project.iconImage ? (
+                      <div className="relative h-10 w-10 rounded-full overflow-hidden border-2 border-primary">
+                        <Image
+                          src={project.iconImage || "/placeholder.svg"}
+                          alt={`${project.title} icon`}
+                          fill
+                          className="object-cover"
+                        />
                       </div>
-                      <div className="flex space-x-2">
-                        <Button variant="outline" size="sm" asChild>
-                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                            <Github className="h-4 w-4 mr-2" />
-                            GitHub
-                          </a>
-                        </Button>
-                        <Button variant="outline" size="sm" asChild>
-                          <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
-                            <Image
-                              src="/images/qiita-logo.png"
-                              alt="Qiita"
-                              width={16}
-                              height={16}
-                              className="h-4 w-4 mr-2"
-                            />
-                            Qiita
-                          </a>
-                        </Button>
-                      </div>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-col md:flex-row gap-6">
-                      <div className="md:w-1/2 flex gap-3">
-                        <div className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border">
-                          <Image
-                            src={project.imageUrl2 || "/placeholder.svg"}
-                            alt={`${project.title}のスクリーンショット2`}
-                            fill
-                            className="object-contain"
-                            onError={(e) => {
-                              e.currentTarget.src = `/placeholder.svg?height=320&width=200&text=${encodeURIComponent(project.title)}`
-                            }}
-                          />
-                        </div>
-                        <div className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border">
-                          <Image
-                            src={project.imageUrl || "/placeholder.svg"}
-                            alt={`${project.title}のスクリーンショット1`}
-                            fill
-                            className="object-contain"
-                            onError={(e) => {
-                              e.currentTarget.src = `/placeholder.svg?height=320&width=200&text=${encodeURIComponent(project.title)}`
-                            }}
-                          />
-                        </div>
-                      </div>
-                      <div className="md:w-1/2 flex flex-col justify-center space-y-4">
-                        <p className="text-muted-foreground leading-relaxed">{project.description}</p>
-                        <div>
-                          <h4 className="text-sm font-semibold mb-2">使用技術</h4>
-                          <div className="flex flex-wrap gap-2">
-                            {project.technologies.map((tech) => (
-                              <Badge key={tech} variant="secondary" className="text-base px-3 py-1">
-                                {tech}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
+                    ) : (
+                      <project.icon className="h-6 w-6 text-primary" />
+                    )}
+                    <span>{project.title}</span>
+                    <Badge variant="outline">{project.type}</Badge>
+                    <Badge variant="outline">{`開発人数:${project.developers}`}</Badge>
+                  </div>
+                  <div className="flex space-x-2">
+                    <Button variant="outline" size="sm" asChild>
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                        <Github className="h-4 w-4 mr-2" />
+                        GitHub
+                      </a>
+                    </Button>
+                    <Button variant="default" size="sm" asChild className="bg-primary hover:bg-primary/90">
+                      <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
+                        <Image
+                          src="/images/qiita-logo.png"
+                          alt="Qiita"
+                          width={16}
+                          height={16}
+                          className="h-4 w-4 mr-2"
+                        />
+                        Qiita記事
+                      </a>
+                    </Button>
+                  </div>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-col md:flex-row gap-6">
+                  <div className="md:w-1/2 flex gap-3">
+                    <div className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border">
+                      <Image
+                        src={project.imageUrl2 || "/placeholder.svg"}
+                        alt={`${project.title}のスクリーンショット2`}
+                        fill
+                        className="object-contain"
+                        onError={(e) => {
+                          e.currentTarget.src = `/placeholder.svg?height=320&width=200&text=${encodeURIComponent(project.title)}`
+                        }}
+                      />
+                    </div>
+                    <div className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border">
+                      <Image
+                        src={project.imageUrl || "/placeholder.svg"}
+                        alt={`${project.title}のスクリーンショット1`}
+                        fill
+                        className="object-contain"
+                        onError={(e) => {
+                          e.currentTarget.src = `/placeholder.svg?height=320&width=200&text=${encodeURIComponent(project.title)}`
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="md:w-1/2 flex flex-col justify-center space-y-4">
+                    <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+                    <div>
+                      <h4 className="text-sm font-semibold mb-2">使用技術</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech) => (
+                          <Badge key={tech} variant="secondary" className="text-base px-3 py-1">
+                            {tech}
+                          </Badge>
+                        ))}
                       </div>
                     </div>
-
-                    {project.details && (
-                      <div className="mt-6 border-t pt-4">
-                        <Button
-                          variant="default"
-                          size="lg"
-                          className="w-full flex items-center justify-between bg-primary/10 hover:bg-primary/20 text-primary border-2 border-primary/30 hover:border-primary transition-all"
-                          onClick={() => setIsComipDetailOpen(!isComipDetailOpen)}
-                        >
-                          <span className="font-bold text-base">📖 プロジェクト詳細を見る</span>
-                          {isComipDetailOpen ? (
-                            <ChevronUp className="h-6 w-6 font-bold" />
-                          ) : (
-                            <ChevronDown className="h-6 w-6 font-bold" />
-                          )}
-                        </Button>
-
-                        {isComipDetailOpen && (
-                          <div className="mt-4 space-y-4 animate-in slide-in-from-top-2">
-                            <div>
-                              <h4 className="font-semibold text-primary mb-2">制作背景</h4>
-                              <p className="text-muted-foreground leading-relaxed">{project.details.background}</p>
-                            </div>
-                            <div>
-                              <h4 className="font-semibold text-primary mb-2">技術選定理由</h4>
-                              <p className="text-muted-foreground leading-relaxed">{project.details.techReason}</p>
-                            </div>
-                            <div>
-                              <h4 className="font-semibold text-primary mb-2">結果</h4>
-                              <p className="text-muted-foreground leading-relaxed">{project.details.result}</p>
-                            </div>
-                            <div>
-                              <h4 className="font-semibold text-primary mb-2">改善点</h4>
-                              <p className="text-muted-foreground leading-relaxed">{project.details.improvement}</p>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </CardContent>
-                </>
-              }
+                  </div>
+                </div>
+              </CardContent>
             </Card>
           ))}
         </div>
