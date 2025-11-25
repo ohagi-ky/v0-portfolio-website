@@ -47,7 +47,7 @@ export function Profile() {
               onClick={() => setIsDetailOpen(!isDetailOpen)}
               className="w-full flex items-center justify-center gap-2 px-6 py-3 text-lg font-semibold text-primary border-2 border-primary rounded-lg hover:bg-primary hover:text-primary-foreground transition-all duration-200"
             >
-              📋 プロフィール詳細
+              プロフィール詳細
               {isDetailOpen ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
             </button>
 
