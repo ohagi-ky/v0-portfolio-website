@@ -33,7 +33,8 @@ export function Projects() {
       technologies: ["Python", "discord.py", "Google Cloud", "Cloud Engine"],
       githubUrl: "https://github.com/ohagi-ky/gemaneko",
       qiitaUrl: "https://qiita.com/OhaGi_/items/f3ca0c144aca495344a7",
-      imageUrl: "/images/gemaneko.jpg",
+      imageUrl: "/images/gemaneko-screen1.png",
+      imageUrl2: "/images/gemaneko-screen2.png",
     },
     {
       title: "OshiSup",
