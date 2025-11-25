@@ -23,7 +23,6 @@ export function Projects() {
       iconImage: "/images/comip-icon.png",
       imageUrl: "/images/comip-screen.png",
       imageUrl2: "/images/comip-screen2.png",
-      layout: "two-column",
     },
     {
       title: "gemaneko",
@@ -36,7 +35,6 @@ export function Projects() {
       qiitaUrl: "https://qiita.com/OhaGi_/items/f3ca0c144aca495344a7",
       imageUrl: "/images/gemaneko-screen1.png",
       imageUrl2: "/images/gemaneko-screen2.png",
-      layout: "two-column",
     },
     {
       title: "OshiSup",
@@ -47,8 +45,7 @@ export function Projects() {
       githubUrl: "https://github.com/ohagi-ky/OshiSup",
       qiitaUrl: "https://qiita.com/OhaGi_/items/oshisup-development",
       imageUrl: "/images/oshisup.jpg",
-      imageUrl2: "/images/oshisup-screen.jpg",
-      layout: "one-column", // OshiSupを1カラムレイアウトに設定
+      imageUrl2: "/images/oshisup-screen.png", // OshiSupのスクリーンショットをjpgからpngに変更
     },
   ]
 
@@ -133,102 +130,67 @@ export function Projects() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                {project.layout === "one-column" ? (
-                  <div className="space-y-6">
-                    {/* 画像を上部に表示 */}
-                    <div className="w-full">
+                <div className="flex flex-col md:flex-row gap-6">
+                  {project.imageUrl2 ? (
+                    <div className="md:w-1/2 flex gap-3">
                       <a
-                        href={project.imageUrl2 || project.imageUrl}
+                        href={project.imageUrl2}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative w-full h-96 rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer block"
+                        className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer"
                       >
                         <Image
-                          src={project.imageUrl2 || project.imageUrl || "/placeholder.svg"}
+                          src={project.imageUrl2 || "/placeholder.svg"}
+                          alt={`${project.title}のスクリーンショット2`}
+                          fill
+                          className="object-contain"
+                        />
+                      </a>
+                      <a
+                        href={project.imageUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer"
+                      >
+                        <Image
+                          src={project.imageUrl || "/placeholder.svg"}
+                          alt={`${project.title}のスクリーンショット1`}
+                          fill
+                          className="object-contain"
+                        />
+                      </a>
+                    </div>
+                  ) : (
+                    <div className="md:w-1/2">
+                      <a
+                        href={project.imageUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative w-full h-80 rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer block"
+                      >
+                        <Image
+                          src={project.imageUrl || "/placeholder.svg"}
                           alt={`${project.title}のスクリーンショット`}
                           fill
                           className="object-contain"
                         />
                       </a>
                     </div>
-                    {/* 説明文と技術スタックを下部に表示 */}
-                    <div className="flex flex-col space-y-4">
-                      <p className="text-muted-foreground leading-relaxed">{project.description}</p>
-                      <div>
-                        <h4 className="text-sm font-semibold mb-2">使用技術</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {project.technologies.map((tech) => (
-                            <Badge key={tech} variant="secondary" className="text-base px-3 py-1">
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
+                  )}
+                  <div className="md:w-1/2 flex flex-col justify-center space-y-4">
+                    <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+                    <div>
+                      <h4 className="text-sm font-semibold mb-2">使用技術</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech) => (
+                          <Badge key={tech} variant="secondary" className="text-base px-3 py-1">
+                            {tech}
+                          </Badge>
+                        ))}
                       </div>
                     </div>
                   </div>
-                ) : (
-                  <div className="flex flex-col md:flex-row gap-6">
-                    {project.imageUrl2 ? (
-                      <div className="md:w-1/2 flex gap-3">
-                        <a
-                          href={project.imageUrl2}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer"
-                        >
-                          <Image
-                            src={project.imageUrl2 || "/placeholder.svg"}
-                            alt={`${project.title}のスクリーンショット2`}
-                            fill
-                            className="object-contain"
-                          />
-                        </a>
-                        <a
-                          href={project.imageUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer"
-                        >
-                          <Image
-                            src={project.imageUrl || "/placeholder.svg"}
-                            alt={`${project.title}のスクリーンショット1`}
-                            fill
-                            className="object-contain"
-                          />
-                        </a>
-                      </div>
-                    ) : (
-                      <div className="md:w-1/2">
-                        <a
-                          href={project.imageUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="relative w-full h-80 rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer block"
-                        >
-                          <Image
-                            src={project.imageUrl || "/placeholder.svg"}
-                            alt={`${project.title}のスクリーンショット`}
-                            fill
-                            className="object-contain"
-                          />
-                        </a>
-                      </div>
-                    )}
-                    <div className="md:w-1/2 flex flex-col justify-center space-y-4">
-                      <p className="text-muted-foreground leading-relaxed">{project.description}</p>
-                      <div>
-                        <h4 className="text-sm font-semibold mb-2">使用技術</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {project.technologies.map((tech) => (
-                            <Badge key={tech} variant="secondary" className="text-base px-3 py-1">
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
+                </div>
 
                 <div className="mt-6 border-t pt-4">
                   <Button
