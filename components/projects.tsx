@@ -45,9 +45,9 @@ export function Projects() {
       technologies: ["React", "Vite", "Fire Store"],
       githubUrl: "https://github.com/ohagi-ky/OshiSup",
       qiitaUrl: "https://qiita.com/OhaGi_/items/oshisup-development",
-      iconImage: "/images/oshisup-icon.png",
-      imageUrl: "/images/oshisup-screen.png",
-      imageUrl2: "/images/oshisup-screen2.jpg",
+      imageUrl: "/images/oshisup.jpg",
+      imageUrl2: "/images/oshisup-screen.png",
+      imageUrl3: "/images/oshisup-screen2.jpg",
     },
   ]
 
@@ -133,7 +133,36 @@ export function Projects() {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-col md:flex-row gap-6">
-                  {project.imageUrl2 ? (
+                  {project.imageUrl3 ? (
+                    <div className="md:w-1/2 flex gap-3">
+                      <a
+                        href={project.imageUrl2}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer"
+                      >
+                        <Image
+                          src={project.imageUrl2 || "/placeholder.svg"}
+                          alt={`${project.title}のスクリーンショット1`}
+                          fill
+                          className="object-contain"
+                        />
+                      </a>
+                      <a
+                        href={project.imageUrl3}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer"
+                      >
+                        <Image
+                          src={project.imageUrl3 || "/placeholder.svg"}
+                          alt={`${project.title}のスクリーンショット2`}
+                          fill
+                          className="object-contain"
+                        />
+                      </a>
+                    </div>
+                  ) : project.imageUrl2 ? (
                     <div className="md:w-1/2 flex gap-3">
                       <a
                         href={project.imageUrl2}
