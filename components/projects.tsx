@@ -44,8 +44,7 @@ export function Projects() {
       technologies: ["React", "Vite", "Fire Store"],
       githubUrl: "https://github.com/ohagi-ky/OshiSup",
       qiitaUrl: "https://qiita.com/OhaGi_/items/oshisup-development",
-      iconImage: "/images/oshisup.jpg",
-      imageUrl: "/images/oshisup-screen.jpg",
+      imageUrl: "/images/oshisup-screen.png",
     },
   ]
 
