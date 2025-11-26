@@ -40,6 +40,19 @@ export function Projects() {
       inProgress: false,
     },
     {
+      title: "KIGEN-BOMB-SQUAD",
+      type: "チーム開発",
+      developers: "2人",
+      description:
+        "家庭用品の期限管理アプリです。防虫剤や芳香剤などの期限をカテゴリ別に管理し、期限切れや警告を通知します。",
+      technologies: ["Next.js", "Firebase"],
+      githubUrl: "https://github.com/ohagi-ky/kigen-bomb-squad",
+      qiitaUrl: "https://qiita.com/OhaGi_/items/kigen-bomb-squad",
+      imageUrl: "/images/kigen-screen1.jpg",
+      imageUrl2: "/images/kigen-screen2.jpg",
+      inProgress: true,
+    },
+    {
       title: "OshiSup",
       type: "チーム開発",
       developers: "2人",
@@ -47,6 +60,7 @@ export function Projects() {
       technologies: ["React", "Vite", "Fire Store"],
       githubUrl: "https://github.com/ohagi-ky/OshiSup",
       qiitaUrl: "https://qiita.com/OhaGi_/items/oshisup-development",
+      iconImage: "/images/oshisup-icon.png",
       imageUrl: "/images/oshisup-screen.png",
       imageUrl2: "/images/oshisup-screen2.png",
       inProgress: true,
