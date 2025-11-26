@@ -41,10 +41,10 @@ export function Projects() {
     },
     {
       title: "KIGEN-BOMB-SQUAD",
-      type: "チーム開発",
-      developers: "2人",
+      type: "個人開発",
+      developers: "1人",
       description:
-        "家庭用品の期限管理アプリです。防虫剤や芳香剤などの期限をカテゴリ別に管理し、期限切れや警告を通知します。",
+        "家庭用品の期限管理アプリです。防虫剤や芳香剤などの期限をカテゴリ別に管理し、製品寿命を管理します。",
       technologies: ["Next.js", "Firebase"],
       githubUrl: "https://github.com/ohagi-ky/kigen-bomb-squad",
       qiitaUrl: "https://qiita.com/OhaGi_/items/kigen-bomb-squad",
