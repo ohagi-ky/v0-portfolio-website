@@ -49,7 +49,7 @@ export function Projects() {
       qiitaUrl: "https://qiita.com/OhaGi_/items/eb7a012a4109f9c21970",
       imageUrl: "/images/kigen-screen1.png",
       imageUrl2: "/images/kigen-screen2.png",
-      inProgress: true,
+      inProgress: false,
     },
     {
       title: "OshiSup",
