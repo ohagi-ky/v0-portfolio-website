@@ -48,8 +48,8 @@ export function Projects() {
       technologies: ["Next.js", "Firebase"],
       githubUrl: "https://github.com/ohagi-ky/kigen-bomb-squad",
       qiitaUrl: "https://qiita.com/OhaGi_/items/kigen-bomb-squad",
-      imageUrl: "/images/kigen-screen1.jpg",
-      imageUrl2: "/images/kigen-screen2.jpg",
+      imageUrl: "/images/kigen-screen1.png",
+      imageUrl2: "/images/kigen-screen2.png",
       inProgress: true,
     },
     {
