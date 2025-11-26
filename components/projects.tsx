@@ -236,7 +236,7 @@ export function Projects() {
                       className="w-full flex items-center justify-center opacity-50 cursor-not-allowed"
                     >
                       <Image src="/images/qiita-logo.png" alt="Qiita" width={20} height={20} className="h-5 w-5 mr-2" />
-                      制作中
+                      作成中
                     </Button>
                   ) : (
                     <Button
