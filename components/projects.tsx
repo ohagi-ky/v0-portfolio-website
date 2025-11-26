@@ -179,12 +179,14 @@ export function Projects() {
               <CardContent>
                 <div className="flex flex-col md:flex-row gap-6">
                   {project.imageUrl2 ? (
-                    <div className="md:w-1/2 flex gap-3">
+                    <div
+                      className={`md:w-1/2 flex ${project.title === "OshiSup" || project.title === "KIGEN-BOMB-SQUAD" ? "flex-col" : ""} gap-3`}
+                    >
                       <a
                         href={project.imageUrl2}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer"
+                        className={`relative ${project.title === "OshiSup" || project.title === "KIGEN-BOMB-SQUAD" ? "w-full h-60" : "w-1/2 h-80"} rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer`}
                       >
                         <Image
                           src={project.imageUrl2 || "/placeholder.svg"}
@@ -197,7 +199,7 @@ export function Projects() {
                         href={project.imageUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative w-1/2 h-80 rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer"
+                        className={`relative ${project.title === "OshiSup" || project.title === "KIGEN-BOMB-SQUAD" ? "w-full h-60" : "w-1/2 h-80"} rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer`}
                       >
                         <Image
                           src={project.imageUrl || "/placeholder.svg"}
