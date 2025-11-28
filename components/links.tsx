@@ -23,7 +23,7 @@ export function Links() {
     <section id="links" className="space-y-6 scroll-mt-20">
       <div className="flex items-center justify-center space-x-3">
         <LinkIcon className="h-8 w-8 text-primary" />
-        <h2 className="text-3xl font-bold text-balance font-[family-name:var(--font-press-start)]">Links</h2>
+        <h2 className="text-4xl font-bold text-balance font-[family-name:var(--font-press-start)]">Links</h2>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
