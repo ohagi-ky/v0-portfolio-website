@@ -7,7 +7,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/80 shadow-sm">
       <div className="container mx-auto flex h-20 items-center justify-between px-6 max-w-4xl">
         <div className="flex items-center space-x-2">{/* タイトル削除 */}</div>
-        <nav className="flex-1 mx-4 md:flex-none overflow-x-auto scrollbar-hide">
+        <nav className="flex-1 mx-4 md:flex-none overflow-x-auto custom-scrollbar">
           <div className="flex items-center space-x-6 md:space-x-10 min-w-max">
             <a
               href="#profile"
