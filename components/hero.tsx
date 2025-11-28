@@ -2,7 +2,11 @@ export function Hero() {
   return (
     <section className="relative h-96 flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img src="/header-keion.jpg" alt="Hero background" className="w-full h-full object-cover" />
+        <img
+          src="/modern-minimalist-tech-workspace-with-clean-desk-s.jpg"
+          alt="Hero background"
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
