@@ -96,7 +96,7 @@ export function Projects() {
       <div className="flex items-center justify-center space-x-3">
         <Briefcase className="h-8 w-8 text-primary" />
         <h2 className="text-4xl font-bold text-balance font-[family-name:var(--font-press-start)]">
-          Projects & Experience
+          Projects
         </h2>
       </div>
 
