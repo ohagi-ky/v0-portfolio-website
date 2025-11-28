@@ -7,22 +7,39 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/80 shadow-sm">
       <div className="container mx-auto flex h-20 items-center justify-between px-6 max-w-4xl">
         <div className="flex items-center space-x-2">{/* タイトル削除 */}</div>
-        <nav className="hidden md:flex items-center space-x-10">
-          <a href="#profile" className="text-xl font-medium hover:text-primary transition-colors">
-            Profile
-          </a>
-          <a href="#skills" className="text-xl font-medium hover:text-primary transition-colors">
-            Skills
-          </a>
-          <a href="#qualifications" className="text-xl font-medium hover:text-primary transition-colors">
-            Qualifications
-          </a>
-          <a href="#projects" className="text-xl font-medium hover:text-primary transition-colors">
-            Projects
-          </a>
-          <a href="#links" className="text-xl font-medium hover:text-primary transition-colors">
-            Links
-          </a>
+        <nav className="flex-1 mx-4 md:flex-none overflow-x-auto scrollbar-hide">
+          <div className="flex items-center space-x-6 md:space-x-10 min-w-max">
+            <a
+              href="#profile"
+              className="text-base md:text-xl font-medium hover:text-primary transition-colors whitespace-nowrap"
+            >
+              Profile
+            </a>
+            <a
+              href="#skills"
+              className="text-base md:text-xl font-medium hover:text-primary transition-colors whitespace-nowrap"
+            >
+              Skills
+            </a>
+            <a
+              href="#qualifications"
+              className="text-base md:text-xl font-medium hover:text-primary transition-colors whitespace-nowrap"
+            >
+              Qualifications
+            </a>
+            <a
+              href="#projects"
+              className="text-base md:text-xl font-medium hover:text-primary transition-colors whitespace-nowrap"
+            >
+              Projects
+            </a>
+            <a
+              href="#links"
+              className="text-base md:text-xl font-medium hover:text-primary transition-colors whitespace-nowrap"
+            >
+              Links
+            </a>
+          </div>
         </nav>
         <div className="flex items-center space-x-4">
           <Button variant="outline" size="default" asChild>

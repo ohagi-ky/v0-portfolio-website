@@ -173,4 +173,14 @@
   ol {
     @apply mb-4 space-y-2;
   }
+
+  /* 横スクロール用のスクロールバー非表示スタイルを追加 */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
