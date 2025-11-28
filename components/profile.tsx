@@ -3,6 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { User, ChevronDown, ChevronUp } from "lucide-react"
 import { useState } from "react"
+import { Button } from "@/components/ui/button"
 
 export function Profile() {
   const [isDetailOpen, setIsDetailOpen] = useState(false)
@@ -43,13 +44,15 @@ export function Profile() {
           </div>
 
           <div className="mt-8 border-t pt-6">
-            <button
+            <Button
               onClick={() => setIsDetailOpen(!isDetailOpen)}
-              className="w-full flex items-center justify-center gap-2 px-6 py-3 text-lg font-semibold text-primary border-2 border-primary rounded-lg hover:bg-primary hover:text-primary-foreground transition-all duration-200"
+              variant="default"
+              size="lg"
+              className="w-full flex items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base"
             >
-              プロフィール詳細
-              {isDetailOpen ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
-            </button>
+              {isDetailOpen ? "プロフィール詳細を閉じる" : "プロフィール詳細を見る"}
+              {isDetailOpen ? <ChevronUp className="h-5 w-5 ml-2" /> : <ChevronDown className="h-5 w-5 ml-2" />}
+            </Button>
 
             {isDetailOpen && (
               <div className="mt-6 space-y-8 animate-in fade-in slide-in-from-top-2 duration-300">
