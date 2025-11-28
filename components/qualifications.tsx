@@ -29,7 +29,7 @@ export function Qualifications() {
     <section id="qualifications" className="space-y-6 scroll-mt-20">
       <div className="flex items-center justify-center space-x-3">
         <Award className="h-8 w-8 text-primary" />
-        <h2 className="text-4xl font-bold text-balance">Qualifications</h2>
+        <h2 className="text-4xl font-bold text-balance font-[family-name:var(--font-press-start)]">Qualifications</h2>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">

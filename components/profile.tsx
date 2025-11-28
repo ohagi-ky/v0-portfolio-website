@@ -11,7 +11,7 @@ export function Profile() {
     <section id="profile" className="space-y-8 scroll-mt-20">
       <div className="flex items-center justify-center space-x-3">
         <User className="h-8 w-8 text-primary" />
-        <h2 className="text-4xl font-bold text-balance">Profile</h2>
+        <h2 className="text-4xl font-bold text-balance font-[family-name:var(--font-press-start)]">Profile</h2>
       </div>
 
       <Card>

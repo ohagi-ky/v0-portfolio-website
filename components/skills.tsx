@@ -75,7 +75,7 @@ export function Skills() {
     <section id="skills" className="space-y-6 scroll-mt-20">
       <div className="flex items-center justify-center space-x-3">
         <Code className="h-8 w-8 text-primary" />
-        <h2 className="text-4xl font-bold text-balance">Skills</h2>
+        <h2 className="text-4xl font-bold text-balance font-[family-name:var(--font-press-start)]">Skills</h2>
       </div>
 
       <div className="grid md:grid-cols-3 gap-6">

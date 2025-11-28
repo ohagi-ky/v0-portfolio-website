@@ -7,7 +7,9 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 text-center text-white">
-        <h1 className="text-5xl md:text-7xl font-bold mb-4 text-balance">Kouen Yoshimura's Portfolio</h1>
+        <h1 className="text-5xl md:text-7xl font-bold mb-4 text-balance font-[family-name:var(--font-press-start)]">
+          Kouen Yoshimura's Portfolio
+        </h1>
         {/* ... existing code ... */}
       </div>
 
