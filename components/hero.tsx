@@ -2,16 +2,14 @@ export function Hero() {
   return (
     <section className="relative h-96 flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img
-          src="/modern-minimalist-tech-workspace-with-clean-desk-s.jpg"
-          alt="Hero background"
-          className="w-full h-full object-cover"
-        />
+        <img src="/images/header-keion.png" alt="Hero background" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
       <div className="relative z-10 text-center text-white">
-        <h1 className="text-5xl md:text-7xl font-bold mb-4 text-balance">Kouen Yoshimura's Portfolio</h1>
+        <h1 className="text-5xl md:text-7xl font-bold mb-4 text-balance leading-relaxed font-[family-name:var(--font-press-start)]">
+          Kouen Yoshimura's Portfolio
+        </h1>
         {/* ... existing code ... */}
       </div>
 

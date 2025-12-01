@@ -5,6 +5,7 @@ import { Qualifications } from "@/components/qualifications"
 import { Projects } from "@/components/projects"
 import { Links } from "@/components/links"
 import { Hero } from "@/components/hero"
+import { PageTopButton } from "@/components/page-top-button"
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <Projects />
         <Links />
       </main>
+      <PageTopButton />
     </div>
   )
 }

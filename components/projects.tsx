@@ -1,10 +1,15 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Briefcase, Github, ExternalLink, Users, Bot } from "lucide-react"
+import { Briefcase, Github } from "lucide-react"
 import Image from "next/image"
+import { useState } from "react"
 
 export function Projects() {
+  const [expandedInternships, setExpandedInternships] = useState<Record<number, boolean>>({})
+
   const projects = [
     {
       title: "こみっぷ",
@@ -15,8 +20,10 @@ export function Projects() {
       technologies: ["Kotlin", "Android Studio", "Jetpack Compose"],
       githubUrl: "https://github.com/TYTTNTeam/ComikeApp",
       qiitaUrl: "https://qiita.com/OhaGi_/items/94a6503033b1d91bb405",
-      icon: Users,
-      imageUrl: "/images/komippu.jpg", // 後でアップロード予定
+      iconImage: "/images/comip-icon.png",
+      imageUrl: "/images/comip-screen1.png",
+      imageUrl2: "/images/comip-screen2.png",
+      inProgress: false,
     },
     {
       title: "gemaneko",
@@ -27,8 +34,22 @@ export function Projects() {
       technologies: ["Python", "discord.py", "Google Cloud", "Cloud Engine"],
       githubUrl: "https://github.com/ohagi-ky/gemaneko",
       qiitaUrl: "https://qiita.com/OhaGi_/items/f3ca0c144aca495344a7",
-      icon: Bot,
-      imageUrl: "/images/gemaneko.jpg", // 後でアップロード予定
+      iconImage: "/images/gemaneko-icon.png",
+      imageUrl: "/images/gemaneko-screen1.png",
+      imageUrl2: "/images/gemaneko-screen2.png",
+      inProgress: false,
+    },
+    {
+      title: "KIGEN-BOMB-SQUAD",
+      type: "個人開発",
+      developers: "1人",
+      description: "家庭用品の期限管理アプリです。防虫剤や芳香剤などの期限をカテゴリ別に管理し、製品寿命を管理します。",
+      technologies: ["Next.js", "Firebase"],
+      githubUrl: "https://github.com/ohagi-ky/KIGEN-BOMB-SQUAD",
+      qiitaUrl: "https://qiita.com/OhaGi_/items/eb7a012a4109f9c21970",
+      imageUrl: "/images/kigen-screen1.png",
+      imageUrl2: "/images/kigen-screen2.png",
+      inProgress: false,
     },
     {
       title: "OshiSup",
@@ -38,8 +59,9 @@ export function Projects() {
       technologies: ["React", "Vite", "Fire Store"],
       githubUrl: "https://github.com/ohagi-ky/OshiSup",
       qiitaUrl: "https://qiita.com/OhaGi_/items/oshisup-development",
-      icon: Users,
-      imageUrl: "/images/oshisup.jpg", // 後でアップロード予定
+      imageUrl: "/images/oshisup-screen1.png",
+      imageUrl2: "/images/oshisup-screen2.png",
+      inProgress: true,
     },
   ]
 
@@ -48,22 +70,34 @@ export function Projects() {
       company: "株式会社ベガコーポレーション",
       period: "2024年8月(5日間)",
       role: "プロダクト企画開発",
-      description: "Reactを用い実際のシステム改善を企画から実装まで経験し、ユーザー視点での開発姿勢を学んだ。",
+      shortDescription: "Reactを用い実際のシステム改善を企画から実装まで経験",
+      fullDescription:
+        "Reactを用い実際のシステム改善を企画から実装まで経験し、ユーザー視点での開発姿勢を学んだ。チームでの協働開発を通じて、コードレビューやアジャイル開発の実践的なスキルを習得。実際のプロダクトに触れることで、ビジネス要件を技術的に実現する力を養った。",
     },
     {
       company: "メディアリンク株式会社",
       period: "2024年9月(3日間)",
       role: "プロダクト企画開発",
-      description:
-        "Java・Gemini APIを用いた音声要約アプリ開発に従事。要件整理から設計・実装までをチームで担当し、生成AIを活用したシステム開発の実践経験を獲得。メンターによるレビューを通じて設計力・実装力を強化。",
+      shortDescription: "Java・Gemini APIを用いた音声要約アプリ開発に従事",
+      fullDescription:
+        "Java・Gemini APIを用いた音声要約アプリ開発に従事。要件整理から設計・実装までをチームで担当し、生成AIを活用したシステム開発の実践経験を獲得。メンターによるレビューを通じて設計力・実装力を強化。特にAPI連携やエラーハンドリングの重要性を学び、実務レベルのコーディング規約やテスト手法についても理解を深めた。",
     },
   ]
 
+  const toggleInternship = (index: number) => {
+    setExpandedInternships((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }))
+  }
+
   return (
-    <section id="projects" className="space-y-8">
-      <div className="flex items-center space-x-3">
-        <Briefcase className="h-6 w-6 text-primary" />
-        <h2 className="text-3xl font-bold text-balance">Projects & Experience</h2>
+    <section id="projects" className="space-y-8 scroll-mt-20">
+      <div className="flex items-center justify-center space-x-3">
+        <Briefcase className="h-8 w-8 text-primary" />
+        <h2 className="text-4xl font-bold text-balance font-[family-name:var(--font-press-start)]">
+          Projects
+        </h2>
       </div>
 
       {/* プロジェクト */}
@@ -75,53 +109,178 @@ export function Projects() {
               <CardHeader>
                 <CardTitle className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
-                    <project.icon className="h-6 w-6 text-primary" />
+                    {project.iconImage ? (
+                      <div className="relative h-10 w-10 rounded-full overflow-hidden border-2 border-primary">
+                        <Image
+                          src={project.iconImage || "/placeholder.svg"}
+                          alt={`${project.title} icon`}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <Briefcase className="h-6 w-6 text-primary" />
+                    )}
                     <span>{project.title}</span>
                     <Badge variant="outline">{project.type}</Badge>
                     <Badge variant="outline">{`開発人数:${project.developers}`}</Badge>
                   </div>
                   <div className="flex space-x-2">
-                    <Button variant="outline" size="sm" asChild>
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-4 w-4 mr-2" />
-                        GitHub
-                      </a>
-                    </Button>
-                    <Button variant="outline" size="sm" asChild>
-                      <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Qiita
-                      </a>
-                    </Button>
+                    {project.inProgress ? (
+                      <>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          disabled
+                          className="opacity-50 cursor-not-allowed bg-transparent"
+                        >
+                          <Github className="h-4 w-4 mr-2" />
+                          GitHub
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          disabled
+                          className="opacity-50 cursor-not-allowed bg-transparent"
+                        >
+                          <Image
+                            src="/images/qiita-logo.png"
+                            alt="Qiita"
+                            width={16}
+                            height={16}
+                            className="h-4 w-4 mr-2"
+                          />
+                          Qiita
+                        </Button>
+                      </>
+                    ) : (
+                      <>
+                        <Button variant="outline" size="sm" asChild>
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Github className="h-4 w-4 mr-2" />
+                            GitHub
+                          </a>
+                        </Button>
+                        <Button variant="outline" size="sm" asChild>
+                          <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
+                            <Image
+                              src="/images/qiita-logo.png"
+                              alt="Qiita"
+                              width={16}
+                              height={16}
+                              className="h-4 w-4 mr-2"
+                            />
+                            Qiita
+                          </a>
+                        </Button>
+                      </>
+                    )}
                   </div>
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="mb-4">
-                  <div className="relative w-full h-48 rounded-lg overflow-hidden bg-muted">
-                    <Image
-                      src={project.imageUrl || "/placeholder.svg"}
-                      alt={`${project.title}のスクリーンショット`}
-                      fill
-                      className="object-cover"
-                      onError={(e) => {
-                        e.currentTarget.src = `/placeholder.svg?height=192&width=400&text=${encodeURIComponent(project.title)}`
-                      }}
-                    />
+                <div className="flex flex-col md:flex-row gap-6">
+                  {project.imageUrl2 ? (
+                    <div
+                      className={`md:w-1/2 flex ${project.title === "OshiSup" || project.title === "KIGEN-BOMB-SQUAD" ? "flex-col" : ""} gap-3`}
+                    >
+                      <a
+                        href={project.imageUrl2}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`relative ${project.title === "OshiSup" || project.title === "KIGEN-BOMB-SQUAD" ? "w-full h-60" : "w-1/2 h-80"} rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer`}
+                      >
+                        <Image
+                          src={project.imageUrl2 || "/placeholder.svg"}
+                          alt={`${project.title}のスクリーンショット2`}
+                          fill
+                          className="object-contain"
+                        />
+                      </a>
+                      <a
+                        href={project.imageUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`relative ${project.title === "OshiSup" || project.title === "KIGEN-BOMB-SQUAD" ? "w-full h-60" : "w-1/2 h-80"} rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer`}
+                      >
+                        <Image
+                          src={project.imageUrl || "/placeholder.svg"}
+                          alt={`${project.title}のスクリーンショット1`}
+                          fill
+                          className="object-contain"
+                        />
+                      </a>
+                    </div>
+                  ) : (
+                    <div className="md:w-1/2">
+                      <a
+                        href={project.imageUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative w-full h-80 rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer block"
+                      >
+                        <Image
+                          src={project.imageUrl || "/placeholder.svg"}
+                          alt={`${project.title}のスクリーンショット`}
+                          fill
+                          className="object-contain"
+                        />
+                      </a>
+                    </div>
+                  )}
+                  <div className="md:w-1/2 flex flex-col justify-center space-y-4">
+                    <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+                    <div>
+                      <h4 className="text-sm font-semibold mb-2">使用技術</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech) => (
+                          <Badge key={tech} variant="secondary" className="text-base px-3 py-1">
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="secondary">
-                      {tech}
-                    </Badge>
-                  ))}
+
+                <div className="mt-6 border-t pt-4">
+                  {project.inProgress ? (
+                    <Button
+                      variant="default"
+                      size="lg"
+                      disabled
+                      className="w-full flex items-center justify-center opacity-50 cursor-not-allowed"
+                    >
+                      <Image src="/images/qiita-logo.png" alt="Qiita" width={20} height={20} className="h-5 w-5 mr-2" />
+                      作成中
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="default"
+                      size="lg"
+                      className="w-full flex items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base"
+                      asChild
+                    >
+                      <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
+                        <Image
+                          src="/images/qiita-logo.png"
+                          alt="Qiita"
+                          width={20}
+                          height={20}
+                          className="h-5 w-5 mr-2"
+                        />
+                        Qiitaで詳細を見る
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
+        <p className="text-muted-foreground text-sm mt-4 text-center">
+          上記に加えて、専門学校での授業でチーム開発を数回経験しました。
+        </p>
       </div>
 
       {/* インターンシップ */}
@@ -142,7 +301,24 @@ export function Projects() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4 leading-relaxed">{internship.description}</p>
+                <div
+                  className="cursor-pointer group"
+                  onClick={() => toggleInternship(index)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      toggleInternship(index)
+                    }
+                  }}
+                >
+                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
+                    {expandedInternships[index] ? internship.fullDescription : internship.shortDescription}
+                    <span className="ml-2 text-primary font-semibold">
+                      {expandedInternships[index] ? "▲ 閉じる" : "▼ 続きを読む"}
+                    </span>
+                  </p>
+                </div>
               </CardContent>
             </Card>
           ))}
