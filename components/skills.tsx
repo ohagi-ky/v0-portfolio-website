@@ -73,12 +73,14 @@ export function Skills() {
 
   return (
     <section id="skills" className="space-y-6 scroll-mt-20">
-      <div className="flex items-center justify-center space-x-3">
-        <Code className="h-8 w-8 text-primary" />
-        <h2 className="text-4xl font-bold text-balance font-[family-name:var(--font-press-start)]">Skills</h2>
+      <div className="flex items-center justify-center space-x-3 px-4">
+        <Code className="h-6 w-6 md:h-8 md:w-8 text-primary flex-shrink-0" />
+        <h2 className="text-2xl md:text-4xl font-bold text-balance font-[family-name:var(--font-press-start)] break-words">
+          Skills
+        </h2>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
         <Card className="border-2 border-primary/30">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2 text-primary">

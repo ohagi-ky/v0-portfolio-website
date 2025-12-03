@@ -6,8 +6,8 @@ export function Hero() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      <div className="relative z-10 text-center text-white">
-        <h1 className="text-5xl md:text-7xl font-bold mb-4 text-balance leading-relaxed font-[family-name:var(--font-press-start)]">
+      <div className="relative z-10 text-center text-white px-4">
+        <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold mb-4 text-balance leading-relaxed font-[family-name:var(--font-press-start)] break-words">
           Kouen Yoshimura's Portfolio
         </h1>
         {/* ... existing code ... */}
