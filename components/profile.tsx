@@ -10,9 +10,11 @@ export function Profile() {
 
   return (
     <section id="profile" className="space-y-8 scroll-mt-20">
-      <div className="flex items-center justify-center space-x-3">
-        <User className="h-8 w-8 text-primary" />
-        <h2 className="text-4xl font-bold text-balance font-[family-name:var(--font-press-start)]">Profile</h2>
+      <div className="flex items-center justify-center space-x-3 px-4">
+        <User className="h-6 w-6 md:h-8 md:w-8 text-primary flex-shrink-0" />
+        <h2 className="text-2xl md:text-4xl font-bold text-balance font-[family-name:var(--font-press-start)] break-words">
+          Profile
+        </h2>
       </div>
 
       <Card>

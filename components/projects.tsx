@@ -93,9 +93,9 @@ export function Projects() {
 
   return (
     <section id="projects" className="space-y-8 scroll-mt-20">
-      <div className="flex items-center justify-center space-x-3">
-        <Briefcase className="h-8 w-8 text-primary" />
-        <h2 className="text-4xl font-bold text-balance font-[family-name:var(--font-press-start)]">
+      <div className="flex items-center justify-center space-x-3 px-4">
+        <Briefcase className="h-6 w-6 md:h-8 md:w-8 text-primary flex-shrink-0" />
+        <h2 className="text-2xl md:text-4xl font-bold text-balance font-[family-name:var(--font-press-start)] break-words">
           Projects
         </h2>
       </div>
