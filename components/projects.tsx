@@ -102,15 +102,15 @@ export function Projects() {
 
       {/* プロジェクト */}
       <div className="space-y-4">
-        <h3 className="text-xl font-semibold">開発プロジェクト</h3>
+        <h3 className="text-lg sm:text-xl font-semibold">開発プロジェクト</h3>
         <div className="grid gap-6">
           {projects.map((project, index) => (
             <Card key={index}>
-              <CardHeader>
-                <CardTitle className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    {project.iconImage ? (
-                      <div className="relative h-10 w-10 rounded-full overflow-hidden border-2 border-primary">
+              <CardHeader className="p-4 sm:p-6">
+                <CardTitle className="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between gap-3">
+                  <div className="flex items-center flex-wrap gap-2 w-full sm:w-auto">
+                    {project.iconImage && (
+                      <div className="relative h-8 w-8 sm:h-10 sm:w-10 rounded-full overflow-hidden border-2 border-primary flex-shrink-0">
                         <Image
                           src={project.iconImage || "/placeholder.svg"}
                           alt={`${project.title} icon`}
@@ -118,30 +118,30 @@ export function Projects() {
                           className="object-cover"
                         />
                       </div>
-                    ) : (
-                      <Briefcase className="h-6 w-6 text-primary" />
                     )}
-                    <span>{project.title}</span>
-                    <Badge variant="outline">{project.type}</Badge>
-                    <Badge variant="outline">{`開発人数:${project.developers}`}</Badge>
+                    <span className="text-base sm:text-lg md:text-xl break-words">{project.title}</span>
+                    <Badge variant="outline" className="text-xs">
+                      {project.type}
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">{`開発人数:${project.developers}`}</Badge>
                   </div>
-                  <div className="flex space-x-2">
+                  <div className="flex space-x-2 w-full sm:w-auto">
                     {project.inProgress ? (
                       <>
                         <Button
                           variant="outline"
                           size="sm"
                           disabled
-                          className="opacity-50 cursor-not-allowed bg-transparent"
+                          className="opacity-50 cursor-not-allowed bg-transparent flex-1 sm:flex-initial"
                         >
                           <Github className="h-4 w-4 mr-2" />
-                          GitHub
+                          <span className="text-xs sm:text-sm">GitHub</span>
                         </Button>
                         <Button
                           variant="outline"
                           size="sm"
                           disabled
-                          className="opacity-50 cursor-not-allowed bg-transparent"
+                          className="opacity-50 cursor-not-allowed bg-transparent flex-1 sm:flex-initial"
                         >
                           <Image
                             src="/images/qiita-logo.png"
@@ -150,18 +150,18 @@ export function Projects() {
                             height={16}
                             className="h-4 w-4 mr-2"
                           />
-                          Qiita
+                          <span className="text-xs sm:text-sm">Qiita</span>
                         </Button>
                       </>
                     ) : (
                       <>
-                        <Button variant="outline" size="sm" asChild>
+                        <Button variant="outline" size="sm" asChild className="flex-1 sm:flex-initial bg-transparent">
                           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                             <Github className="h-4 w-4 mr-2" />
-                            GitHub
+                            <span className="text-xs sm:text-sm">GitHub</span>
                           </a>
                         </Button>
-                        <Button variant="outline" size="sm" asChild>
+                        <Button variant="outline" size="sm" asChild className="flex-1 sm:flex-initial bg-transparent">
                           <a href={project.qiitaUrl} target="_blank" rel="noopener noreferrer">
                             <Image
                               src="/images/qiita-logo.png"
@@ -170,7 +170,7 @@ export function Projects() {
                               height={16}
                               className="h-4 w-4 mr-2"
                             />
-                            Qiita
+                            <span className="text-xs sm:text-sm">Qiita</span>
                           </a>
                         </Button>
                       </>
@@ -178,17 +178,17 @@ export function Projects() {
                   </div>
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-4 sm:p-6">
                 <div className="flex flex-col md:flex-row gap-6">
                   {project.imageUrl2 ? (
                     <div
-                      className={`md:w-1/2 flex ${project.title === "OshiSup" || project.title === "KIGEN-BOMB-SQUAD" ? "flex-col" : ""} gap-3`}
+                      className={`md:w-1/2 flex ${project.title === "OshiSup" || project.title === "KIGEN-BOMB-SQUAD" ? "flex-col" : "flex-col sm:flex-row"} gap-3`}
                     >
                       <a
                         href={project.imageUrl2}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`relative ${project.title === "OshiSup" || project.title === "KIGEN-BOMB-SQUAD" ? "w-full h-60" : "w-1/2 h-80"} rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer`}
+                        className={`relative ${project.title === "OshiSup" || project.title === "KIGEN-BOMB-SQUAD" ? "w-full h-48 sm:h-60" : "w-full sm:w-1/2 h-60 sm:h-80"} rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer`}
                       >
                         <Image
                           src={project.imageUrl2 || "/placeholder.svg"}
@@ -201,7 +201,7 @@ export function Projects() {
                         href={project.imageUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`relative ${project.title === "OshiSup" || project.title === "KIGEN-BOMB-SQUAD" ? "w-full h-60" : "w-1/2 h-80"} rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer`}
+                        className={`relative ${project.title === "OshiSup" || project.title === "KIGEN-BOMB-SQUAD" ? "w-full h-48 sm:h-60" : "w-full sm:w-1/2 h-60 sm:h-80"} rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer`}
                       >
                         <Image
                           src={project.imageUrl || "/placeholder.svg"}
@@ -217,7 +217,7 @@ export function Projects() {
                         href={project.imageUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative w-full h-80 rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer block"
+                        className="relative w-full h-60 sm:h-80 rounded-lg overflow-hidden bg-muted border-2 border-border hover:border-primary transition-colors cursor-pointer block"
                       >
                         <Image
                           src={project.imageUrl || "/placeholder.svg"}
@@ -229,12 +229,16 @@ export function Projects() {
                     </div>
                   )}
                   <div className="md:w-1/2 flex flex-col justify-center space-y-4">
-                    <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{project.description}</p>
                     <div>
-                      <h4 className="text-sm font-semibold mb-2">使用技術</h4>
+                      <h4 className="text-xs sm:text-sm font-semibold mb-2">使用技術</h4>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech) => (
-                          <Badge key={tech} variant="secondary" className="text-base px-3 py-1">
+                          <Badge
+                            key={tech}
+                            variant="secondary"
+                            className="text-xs sm:text-sm md:text-base px-2 sm:px-3 py-1"
+                          >
                             {tech}
                           </Badge>
                         ))}
@@ -278,29 +282,29 @@ export function Projects() {
             </Card>
           ))}
         </div>
-        <p className="text-muted-foreground text-sm mt-4 text-center">
+        <p className="text-muted-foreground text-xs sm:text-sm mt-4 text-center px-4">
           上記に加えて、専門学校での授業でチーム開発を数回経験しました。
         </p>
       </div>
 
       {/* インターンシップ */}
       <div className="space-y-4">
-        <h3 className="text-xl font-semibold">インターンシップ経験</h3>
+        <h3 className="text-lg sm:text-xl font-semibold">インターンシップ経験</h3>
         <div className="grid gap-6">
           {internships.map((internship, index) => (
             <Card key={index}>
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-3">
-                  <Briefcase className="h-6 w-6 text-primary" />
-                  <div>
-                    <div>{internship.company}</div>
-                    <div className="text-sm text-muted-foreground font-normal">
+              <CardHeader className="p-4 sm:p-6">
+                <CardTitle className="flex items-start space-x-3">
+                  <Briefcase className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0 mt-1" />
+                  <div className="min-w-0 flex-1">
+                    <div className="text-base sm:text-lg md:text-xl break-words">{internship.company}</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground font-normal mt-1">
                       {internship.role} • {internship.period}
                     </div>
                   </div>
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-4 sm:p-6">
                 <div
                   className="cursor-pointer group"
                   onClick={() => toggleInternship(index)}
@@ -312,9 +316,9 @@ export function Projects() {
                     }
                   }}
                 >
-                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
                     {expandedInternships[index] ? internship.fullDescription : internship.shortDescription}
-                    <span className="ml-2 text-primary font-semibold">
+                    <span className="ml-2 text-primary font-semibold text-xs sm:text-sm">
                       {expandedInternships[index] ? "▲ 閉じる" : "▼ 続きを読む"}
                     </span>
                   </p>
